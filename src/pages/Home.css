@@ -85,3 +85,21 @@ a {
   font-weight: bold;
   margin-left: 110px;
 }
+/* 
+=============================
+    main
+============================= 
+*/
+.main{
+  background-color: orange;
+}
+
+.main-wrapper{
+  background-color: red;
+  height: 550px;
+}
+ 
+.main-cover{
+  width:100%;
+  backgound-color: blue;
+}
