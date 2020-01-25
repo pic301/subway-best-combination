@@ -1,0 +1,52 @@
+
+
+.btn_direction{
+    height: 500px;
+    position: relative;
+}
+.btn_direction img{
+    margin-left: 20px;
+    opacity: 0.7;
+    
+    
+}
+
+.btn_direction img:hover {
+    
+    width:600px;
+    height: 450px;
+    opacity: 1;
+    transition: 0.9s;
+   
+}
+
+
+
+
+.btn_right:hover{
+    background: url(../images/menus/icon_slider_arr.png) -50px -50px no-repeat;
+}
+.btn_right{
+    position: absolute;
+    top: 200px;
+    left: 580px;
+    background: url(../images/menus/icon_slider_arr.png) -50px 0px no-repeat;
+    width: 50px;
+    height: 50px;
+    text-indent: -9999px;
+  
+}
+.btn_left:hover{
+    background: url(../images/menus/icon_slider_arr.png) 0px -50px no-repeat;
+}
+
+.btn_left{
+    background: url(../images/menus/icon_slider_arr.png) no-repeat;
+    position: absolute;
+    top: 200px;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    text-indent: -9999px;
+}
+

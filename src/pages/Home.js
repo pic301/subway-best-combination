@@ -3,7 +3,7 @@
 // =========================
 import React, { Component } from "react";
 import "./Home.css";
-import Slider from '../components/Slider'
+import Slider from "../components/Slider";
 import MainImage1 from "../images/common/1.jpg";
 import MainImage2 from "../images/common/2.jpg";
 
@@ -16,8 +16,6 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 
 const MainImage = [MainImage1, MainImage2];
-
-
 
 class Home extends Component {
   state = {
@@ -122,7 +120,7 @@ class Home extends Component {
                     <strong>꿀조합 영상 보러가기</strong>
                   </a>
                 </div>
-                
+
                 <div className="franchise clearfix">
                   <a href="##">
                     <strong>가맹신청ㆍ문의</strong>
@@ -134,19 +132,18 @@ class Home extends Component {
         </div>
         <div className="section">
           <div className="section-wrapper">
-             <div className="section-title">
-               <h2>Subway's Best Combination</h2>
-             </div>
-             <div></div>
+            <div className="section-title">
+              <h2>Subway's Best Combination</h2>
+            </div>
+          </div>
+          <div className="slider_wrapper">
+            <Slider />
           </div>
         </div>
-        <Slider/>
         <div className="footer">footer</div>
       </>
     );
   }
 }
 
-
-  
 export default Home;
