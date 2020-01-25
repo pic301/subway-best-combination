@@ -12,7 +12,7 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaina&display=swap');
 /* 상하단마진겹침문제 해결 */
 .clearfix:before,
 .clearfix:after {
@@ -89,11 +89,11 @@ a {
 ============================= 
 */
 .main {
-  background-color: orange;
+ 
 }
 
 .main-wrapper {
-  background-color: orange;
+  
   height: 550px;
 }
 
@@ -161,8 +161,9 @@ a {
   text-align: center;
   letter-spacing: 0.02rem;
   color: whitesmoke;
-  
+ 
 }
+
 .franchise a>strong::before{
   position: absolute;
   top: 25px;
@@ -191,3 +192,21 @@ a {
 }
 .franchise {
 } */
+
+/* 
+=============================
+    section
+============================= 
+*/
+.section-wrapper{
+  background-color: red;
+  width: 100vw;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.section-title h2{
+  
+  font-family: 'Baloo Bhaina', cursive;
+  font-size: 45px;
+  background: url(../images/common/bul_tit.png)  0 5px no-repeat;
+}
