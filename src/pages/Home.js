@@ -45,7 +45,7 @@ class Home extends Component {
         this.state.currentImage === 0
           ? this.setState({ currentImage: 1 })
           : this.setState({ currentImage: 0 }),
-      5000
+      4000
     );
   }
   render() {
@@ -133,7 +133,7 @@ class Home extends Component {
         <div className="section">
           <div className="section-wrapper">
             <div className="section-title">
-              <h2>Subway's Best Combination</h2>
+              <h2>Subway's Best Combination Top 8</h2>
             </div>
           </div>
           <div className="slider_wrapper">
