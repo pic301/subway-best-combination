@@ -27,8 +27,11 @@ blockquote,
 dl,
 dd {
   margin: 0;
+  
 }
-
+li{
+  list-style: none;
+}
 /* Set core body defaults */
 body {
   min-height: 100vh;
@@ -46,6 +49,7 @@ ol[class] {
 /* A elements that don't have a class get default styles */
 a:not([class]) {
   text-decoration-skip-ink: auto;
+  text-decoration: none;
 }
 
 /* Make images easier to work with */

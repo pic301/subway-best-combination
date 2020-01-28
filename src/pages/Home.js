@@ -4,6 +4,7 @@
 import React, { Component } from "react";
 
 import "./Home.css";
+import HomeLayout from '../components/HomeLayout'
 import Slider from "../components/Slider";
 import MainImage1 from "../images/common/1.jpg";
 import MainImage2 from "../images/common/2.jpg";
@@ -53,34 +54,7 @@ class Home extends Component {
     return (
       <>
         <div className="header">
-          <div className="header-content clearfix">
-            <div className="header-logo">
-              <a href="#sdf">subway</a>
-            </div>
-
-            <ul className="header-menu ">
-              <li>
-                <a href="#a">매장찾기</a>
-              </li>
-              <li>
-                <a href="#a">가맹신청ㆍ문의</a>
-              </li>
-              <li>
-                <a href="#a">고객센터</a>
-              </li>
-              <li>
-                <a
-                  className="global_subway"
-                  href="http://www.subway.com/en-us/exploreourworld"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Global Subway"
-                >
-                  Global Subway
-                </a>
-              </li>
-            </ul>
-          </div>
+          <HomeLayout/>
           <Toolbar className="header-nav">
             {this.state.menus.map((menu, i) => (
               <>
@@ -100,7 +74,7 @@ class Home extends Component {
             ))}
           </Toolbar>
         </div>
-        <div></div>
+        
 
         <div className="main">
           <div className="main-wrapper">
