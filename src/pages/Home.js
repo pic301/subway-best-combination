@@ -2,6 +2,7 @@
 //    IMPORT DEPENDENCIES
 // =========================
 import React, { Component } from "react";
+
 import "./Home.css";
 import Slider from "../components/Slider";
 import MainImage1 from "../images/common/1.jpg";
@@ -141,6 +142,7 @@ class Home extends Component {
           </div>
         </div>
         <div className="footer">footer</div>
+        
       </>
     );
   }

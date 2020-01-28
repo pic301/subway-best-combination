@@ -63,6 +63,21 @@
 .star.s40::before{ width: 80%}
 .star.s45::before{ width: 90%}
 .star.s50::before{ width: 100%}
+.btn_detail{
+    position: absolute;
+    top: 240px;
+    left: 660px;
+    background-color: green;
+}
+.btn-link{
+    display: inline-block;
+    padding: 10px 40px;
+    text-decoration: none;
+    color:  white;
+
+}
+
+
 
 
 

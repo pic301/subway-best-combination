@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom'
 import "./Slider.css";
 
 import sandwich_01 from "../images/menus/sandwich_01.jpg";
@@ -102,8 +103,12 @@ class Slider extends Component {
             <div className={`star s${this.state.starNumber[this.state.sandwichImagesIndex]}`}>
             
             </div>
+            <button className="btn btn_detail">
+            <Link  className="btn-link"to={`/detail/${this.state.sandwichImagesIndex}`}>상세보기</Link>
+            </button>
+            
           </div>
-
+         
           <button className="btn btn_left" onClick={this.prevImage}>
             prev
           </button>
