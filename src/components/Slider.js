@@ -24,26 +24,17 @@ class Slider extends Component {
       sandwich_08
     ],
     sandwichImagesIndex: 0,
-    sandwichDesc1: [
-      "촉촉한 바비큐 치킨의 풍미가득.",
+    sandwichDesc: [
+      "오븐에 구워 담백한 저칼로리 닭가슴살의 건강한 풍미",
       "담백한 터키와 바삭한 베이컨의 기분 좋은 만남",
       "육즙이 쫙~풍부한 비프 스테이크의 풍미가 입안 한가득",
       "담백한 터키와 바삭한 베이컨 환상조합에 부드러운 아보카도는 신의 한수",
       "바삭한 베이컨과 담백한 치킨의 이중주",
       "자신있게 추천하는 터키, 햄, 베이컨의 완벽한 맛의 밸런스",
       "살라미, 페퍼로니가 입안 한가득! 쏘 핫한 이탈리아의 맛",
-      "담백한 치킨 스트립에 달콤짭쪼름한 써브웨이 "
+      "담백한 치킨 스트립에 달콤짭쪼름한 써브웨이 특제 데리야끼 소스와의 환상적인 만남"
     ],
-    sandwichDesc2: [
-      "손으로 찢어 더욱 부드러운 치킨의 혁명",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "특제 데리야끼 소스와의 환상적인 만남"
-    ],
+  
     sliderTitle:
       ["로스트 치킨",
       "터키베이컨",
@@ -87,6 +78,7 @@ class Slider extends Component {
   };
 
   render() {
+    
     return (
       <div>
         <div className="main-slider">
@@ -104,7 +96,7 @@ class Slider extends Component {
             
             </div>
             <button className="btn btn_detail">
-            <Link  className="btn-link"to={`/detail/${this.state.sandwichImagesIndex}`}>상세보기</Link>
+            <Link  className="btn-link"to={`/detail/${this.state.sandwichImagesIndex}/${this.state.sliderTitle[this.state.sandwichImagesIndex]}/${this.state.sandwichDesc[this.state.sandwichImagesIndex]}`}>상세보기</Link>
             </button>
             
           </div>
@@ -116,9 +108,7 @@ class Slider extends Component {
             next
           </button>
           <p>
-            {this.state.sandwichDesc1[this.state.sandwichImagesIndex]}
-            <br />
-            {this.state.sandwichDesc2[this.state.sandwichImagesIndex]}
+            {this.state.sandwichDesc[this.state.sandwichImagesIndex]}
           </p>
         </div>
       </div>
