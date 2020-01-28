@@ -4,11 +4,11 @@
 import React, { Component } from "react";
 
 import "./Home.css";
-import HomeLayout from '../components/HomeLayout'
+import HomeLayout from "../components/HomeLayout";
 import Slider from "../components/Slider";
 import MainImage1 from "../images/common/1.jpg";
 import MainImage2 from "../images/common/2.jpg";
-
+import combination from "../images/common/combination.png";
 // =========================
 //     MaterialUI
 // =========================
@@ -54,7 +54,7 @@ class Home extends Component {
     return (
       <>
         <div className="header">
-          <HomeLayout/>
+          <HomeLayout />
           <Toolbar className="header-nav">
             {this.state.menus.map((menu, i) => (
               <>
@@ -74,7 +74,6 @@ class Home extends Component {
             ))}
           </Toolbar>
         </div>
-        
 
         <div className="main">
           <div className="main-wrapper">
@@ -108,15 +107,22 @@ class Home extends Component {
         <div className="section">
           <div className="section-wrapper">
             <div className="section-title">
-              <h2>Subway's Best Combination Top 8</h2>
+              <h2 className="section-mystore">
+                <span>나만의</span>
+                <span>꿀조합</span>
+              </h2>
+              <h2 className="section-title-left">
+                Subway's Best Combination Top 8
+              </h2>
             </div>
+            <img src={combination} alt="" />
+            <div className="section-mystore-make">만들러가기</div>
           </div>
           <div className="slider_wrapper">
             <Slider />
           </div>
         </div>
         <div className="footer">footer</div>
-        
       </>
     );
   }
