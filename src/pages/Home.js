@@ -2,6 +2,7 @@
 //    IMPORT DEPENDENCIES
 // =========================
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 import "./Home.css";
 import HomeLayout from "../components/HomeLayout";
@@ -9,6 +10,7 @@ import Slider from "../components/Slider";
 import MainImage1 from "../images/common/1.jpg";
 import MainImage2 from "../images/common/2.jpg";
 import combination from "../images/common/combination.png";
+
 // =========================
 //     MaterialUI
 // =========================
@@ -50,6 +52,7 @@ class Home extends Component {
       4000
     );
   }
+
   render() {
     return (
       <>
@@ -65,9 +68,10 @@ class Home extends Component {
                   anchorEl={this.state.anchorEl}
                   open={Boolean(this.state.anchorEl)}
                   onClose={this.handleClose}
+                  
                 >
-                  {this.state.items.map(item => (
-                    <MenuItem>{item}</MenuItem>
+                  {this.state.items.map((item,index )=> (
+                    <MenuItem >{item}</MenuItem>
                   ))}
                 </Menu>
               </>
@@ -116,7 +120,10 @@ class Home extends Component {
               </h2>
             </div>
             <img src={combination} alt="" />
-            <div className="section-mystore-make">만들러가기</div>
+                   
+            <div className="section-mystore-make">
+              <Link  to={"/combination"}>만들러가기</Link>
+            </div>
           </div>
           <div className="slider_wrapper">
             <Slider />

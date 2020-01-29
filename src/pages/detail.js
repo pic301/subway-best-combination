@@ -126,7 +126,7 @@ class Detail extends Component {
               <div className="recipe">
                   <ul>
                      { this.state.images[sandwichId].map((image,index) =>
-                          <li>
+                          <li key={index}>
                             <img src={image.recipeImage} alt="recipeImage"/>
                             {image.name === "피클 제거"
                             ?<p style={{color:"red"}}>{image.name}</p>

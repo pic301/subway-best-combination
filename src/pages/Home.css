@@ -47,9 +47,9 @@ ol[class] {
 }
 
 /* A elements that don't have a class get default styles */
-a:not([class]) {
+a, a:hover, a:visited {
   text-decoration-skip-ink: auto;
-  text-decoration: none;
+  text-decoration: none ;
 }
 
 /* Make images easier to work with */
@@ -307,7 +307,12 @@ input, button, submit { border:none; }
    background-color: #009223;
    color: white;
    padding: 10px 30px;
+   z-index: 10;
 }
+.section-mystore-make a{
+  color: inherit;
+}
+
 .section-title img{
   float: right;
   width: 500px;
