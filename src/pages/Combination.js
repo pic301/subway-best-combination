@@ -20,7 +20,12 @@ class Combination extends Component {
       ["랜치드레싱","마요네즈","스위트 어니언","허니 머스타드", "스위트 칠리", "핫 칠리", "사우스 웨스트", "머스타드", "홀스래디쉬",
        "사우전 아일랜드 ","이탈리안 드레싱" ,"올리브오일", "레드와인식초" ,"소금", "후추", "스모크 바비큐"]
     ],
-    combination:[]
+    combination:[],
+    cardTitle:["빵 선택","추가토핑 선택","야채 선택","치즈 선택","소스 선택"],
+    cardDesc:["매장에서 직접 구운 6가지 종류 중 고객님이 원하는 빵으로 추가비용없이 선택가능합니다.",
+             " 나만의 메뉴를 더욱 풍성하게 즐기세요.","원하지 않는 야채는 뺴고 좋아하는 야채를 더하세요.",
+             "풍미를 더해주는 치즈를 골라주세요.","오늘의 기분에 맞는 소스를 선택해주세요"
+    ]
   };
   nextStep = () => {
     // this.state.step > 4
@@ -59,8 +64,21 @@ class Combination extends Component {
               {this.state.materials[this.state.step].map((item,index )=>
                 <button key={index} name={item} onClick={this.onClick}>{item}</button>
               )}
-              <div className="step-card">
+              <div className="step-card-left">
                 {this.state.combination}
+              </div>
+              <div className="step-card-right">
+                <div className="step-number">
+                {`step0${this.state.step+1}`}
+                </div>
+                <div className="step-menu">
+                  <strong>
+                  {this.state.cardTitle[this.state.step]}
+                  </strong>
+                </div>
+                <div className="step-desc">
+                  {this.state.cardDesc[this.state.step]}
+                </div>
               </div>
             </div>
             <button onClick={this.prevStep}>prev</button>
