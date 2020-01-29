@@ -1,7 +1,7 @@
 .btn-recipe{
     background-color:#009223;
 
-    margin: 0 0 0 10px;
+    margin: 60px 0 0 10px;
     padding: 5px;
     border-radius: 10px;
     color: #ffffff
@@ -25,38 +25,50 @@
 }
 .step-content {
    position: relative;
+   
    background-color: #f6f6f6
 }
 .step-content img{
+    
     width: 700px;
     height: 420px;;
 }
+.step-card-left::before{
+    content:'나만의 꿀조합 레시피';
+    color: #ffc300;
+    position: absolute;
+    top: -40px;
+    left: 15px;
+    font-size: 30px;
+    font-weight: 400
+}
 
 .step-card-left{
-    margin-top: 10px;
+    margin-top: 50px;
     position: absolute;
     top: 0;
     left: 40%;
     width: 300px;
-    height: 400px;
+    height: 420px;
     border: 1px solid #dddddd;
     background-color: #fff;
 }
 
-.step-card-left{
 
-}
-.card-recipe{
-    font-size: 30px;
+.card-recipe-item{
+    border: 1px solid #009223;
+    padding:5px;
+    font-size: 20px;
+    
 }
 
 .step-card-right{
-    margin-top: 10px;
+    margin-top: 50px;
     position: absolute;
     top: 0;
     left: 60%;
     width: 300px;
-    height: 400px;
+    height: 420px;
     border: 1px solid #dddddd;
     background-color: #fff;
 
@@ -96,4 +108,10 @@
     font-size: 16px;
     color: #666666;
     padding-right: 40px;
+}
+
+.step-cover{
+    display: inline-block;
+    width:150px;
+    height: 150px;
 }
