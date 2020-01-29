@@ -1,3 +1,20 @@
+.btn-recipe{
+    background-color:#009223;
+
+    margin: 0 0 0 10px;
+    padding: 5px;
+    border-radius: 10px;
+    color: #ffffff
+}
+.btn-prev,.btn-next{
+    background-color:#ffc300;
+    padding: 10px 100px;
+    margin: 10px;
+    border-radius: 10px
+}
+
+
+
 .step {
     width: 100%;
     height: 100px;
@@ -25,6 +42,14 @@
     border: 1px solid #dddddd;
     background-color: #fff;
 }
+
+.step-card-left{
+
+}
+.card-recipe{
+    font-size: 30px;
+}
+
 .step-card-right{
     margin-top: 10px;
     position: absolute;

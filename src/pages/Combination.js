@@ -13,7 +13,7 @@ class Combination extends Component {
     step: 0,
     materials:
     [
-      ["화이트","파마산","오레가노","허니오트","하티","위트","플랫"],
+      ["화이트","파마산 오레가노","허니오트","하티","위트","플랫"],
       ["베이컨 비츠","쉬림프","에그마요","오믈렛","아보카도","페퍼로니","베이컨"],
       ["양상추","토마토","오이","피망","양파","피클","올리브","할라피뇨","아보카도"],
       ["아메리칸 치즈", "슈레드치즈", "모차렐라 치즈"],
@@ -28,9 +28,7 @@ class Combination extends Component {
     ]
   };
   nextStep = () => {
-    // this.state.step > 4
-    // ?this.setState({ step: this.state.step === 0})
-    // :this.setState({ step: this.state.step + 1 });
+  
     if( this.state.step > 3){
       this.setState({ step: 0})
     } else{
@@ -62,10 +60,12 @@ class Combination extends Component {
             <div className="step-content">
               <img src={this.state.images[this.state.step]} alt="" />
               {this.state.materials[this.state.step].map((item,index )=>
-                <button key={index} name={item} onClick={this.onClick}>{item}</button>
+                <button className="btn btn-recipe"key={index} name={item} onClick={this.onClick}>{item}</button>
               )}
               <div className="step-card-left">
+                <div className="card-recipe">
                 {this.state.combination}
+                </div>
               </div>
               <div className="step-card-right">
                 <div className="step-number">
@@ -81,8 +81,8 @@ class Combination extends Component {
                 </div>
               </div>
             </div>
-            <button onClick={this.prevStep}>prev</button>
-            <button onClick={this.nextStep}>next</button>
+            <button className="btn btn-prev" onClick={this.prevStep}>이전</button>
+            <button className="btn btn-next"onClick={this.nextStep}>다음</button>
           </div>
         </div>
       </div>
