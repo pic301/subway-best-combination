@@ -1,4 +1,4 @@
-//Dependency
+//
 import React from "react";
 import { BrowserRouter as Router,Switch,Route,} from 'react-router-dom' 
 
@@ -9,7 +9,7 @@ import Combination from './pages/Combination'
 import store from './pages/store'
 
 const App = () => {
-
+  
   return (
     <div>
       <Router>

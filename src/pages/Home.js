@@ -89,9 +89,9 @@ class Home extends Component {
             <div className="quick_link">
               <div className="quick-content clearfix">
                 <div className="store">
-                  <a href="##">
+                  <Link to="/store">
                     <strong>매장찾기</strong>
-                  </a>
+                  </Link>
                 </div>
                 <div className="youtube">
                   <a href="https://youtu.be/ZR1smxzfu90">
