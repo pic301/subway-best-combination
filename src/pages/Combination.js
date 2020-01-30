@@ -52,17 +52,6 @@ import ranchDressing from '../images/recipes/ranchDressing.jpg'
 import sweetOnion from '../images/recipes/sweetOnion.jpg'
 
 
-
-
-
-
-
-
-
-
-
-
-
 class Combination extends Component {
   state = {
     images: [order00, order01, order02, order03, order04],
@@ -159,17 +148,35 @@ class Combination extends Component {
     this.setState({combinationImages:this.state.combinationImages.concat(this.state.recipeImages[e.target.name])})
     console.log(this.state.combinationImages)
     console.log(this.state.combination)
+
+  const clickStep = () => {
+    
   }
+  }
+
+
   render() {
     return (
       <div className="combination">
         <div className="combination-wrapper">
           <div className="combination-content">
             <ul className="step">
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
-              <li>4</li>
+             {this.state.step === 0 ? <li style={{backgroundColor:"green"}}>STEP<strong>1</strong></li>
+             :<li style={{backgroundColor:"white"}}>STEP<strong>1</strong></li>
+             }
+              {this.state.step === 1 ? <li style={{backgroundColor:"green"}}>STEP<strong>2</strong></li>
+             :<li style={{backgroundColor:"white"}}>STEP<strong>2</strong></li>
+             }
+              {this.state.step === 2 ? <li style={{backgroundColor:"green"}}>STEP<strong>3</strong></li>
+             :<li style={{backgroundColor:"white"}}>STEP<strong>3</strong></li>
+             }
+              {this.state.step === 3 ? <li style={{backgroundColor:"green"}}>STEP<strong>4</strong></li>
+             :<li style={{backgroundColor:"white"}}>STEP<strong>4</strong></li>
+             }
+              {this.state.step === 4 ? <li style={{backgroundColor:"green"}}>STEP<strong>5</strong></li>
+             :<li style={{backgroundColor:"white"}}>STEP<strong>5</strong></li>
+             }
+             
             </ul>
             <div className="step-content">
               <img src={this.state.images[this.state.step]} alt="" />
@@ -201,9 +208,10 @@ class Combination extends Component {
             <button className="btn btn-next"onClick={this.nextStep}>다음</button>
           </div>
           {this.state.combinationImages.map((item,index)=>
-              <img className="step-cover" src={item} alt=""/>
+              <>
+                <img className="step-cover" src={item} alt=""/>
+              </>
           )}
-               
         </div>
       </div>
     );
