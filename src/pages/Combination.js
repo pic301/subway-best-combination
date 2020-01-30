@@ -148,12 +148,13 @@ class Combination extends Component {
     this.setState({combinationImages:this.state.combinationImages.concat(this.state.recipeImages[e.target.name])})
     console.log(this.state.combinationImages)
     console.log(this.state.combination)
-
-  const clickStep = () => {
-    
+   
   }
+  onRemove = (e) => {
+    this.setState({combination: this.state.combination.slice(!e.target.name)})
+    this.setState({combinationImages: this.state.combinationImages.slice(!e.target.name)})
+    console.log(this.state.combination)
   }
-
 
   render() {
     return (
@@ -185,8 +186,18 @@ class Combination extends Component {
               )}
               <div className="step-card-left">
                 <div className="card-recipe">
-                {this.state.combination.map(item => <div className="card-recipe-item">{item}</div>)
-                  }
+                {this.state.combination.map((item,index) => 
+                <>
+                <div className="card-recipe-item">{item}
+                <button className="btn card_btn"onClick={this.onRemove}>
+                  x
+                </button>
+                </div>
+               
+                </>
+                )
+                
+              }
                 
                 </div>
               </div>
