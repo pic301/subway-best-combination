@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./detail.css";
 import HomeLayout from "../components/HomeLayout";
+import CommentBox from '../components/Comment'
 
 import cheese from '../images/recipes/cheese.jpg'
 import chiken from '../images/recipes/chiken.jpg'
@@ -139,6 +140,7 @@ class Detail extends Component {
             </div>
           </div>
         </div>
+        <CommentBox/>
       </>
     );
   }
