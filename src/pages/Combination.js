@@ -151,7 +151,8 @@ class Combination extends Component {
    
   }
   onRemove = (e) => {
-    this.setState({combination: this.state.combination.slice(!e.target.name)})
+    
+    this.setState({combination: this.state.combination.splice(!e.target.value)})
     this.setState({combinationImages: this.state.combinationImages.slice(!e.target.name)})
     console.log(this.state.combination)
   }

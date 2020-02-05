@@ -16,12 +16,14 @@
     width:600px;
     height: 450px;
     opacity: 1;
-    transition: 0.9s;
-   
+     
 }
+
+
+
 .main-slider p{
     position: absolute;
-    bottom:70px;
+    bottom:110px;
     left:120px;
     font-size: 15px;
     color: #999999;
@@ -31,8 +33,8 @@
     margin: 0 auto;
     letter-spacing: -0.04em;
     
-
 }
+
 .slider-title{
     position:absolute;
     top: 130px;
@@ -68,13 +70,14 @@
     top: 240px;
     left: 660px;
     background-color: green;
+    
 }
 .btn-link{
     display: inline-block;
     padding: 10px 40px;
     text-decoration: none;
     color:  white;
-
+    border-radius: 5px;
 }
 
 
@@ -83,10 +86,11 @@
 
 .btn_right:hover{
     background: url(../images/menus/icon_slider_arr.png) -50px -50px no-repeat;
+    transition: 2
 }
 .btn_right{
     position: absolute;
-    top: 200px;
+    top: 180px;
     left: 580px;
     background: url(../images/menus/icon_slider_arr.png) -50px 0px no-repeat;
     width: 50px;
@@ -101,8 +105,8 @@
 .btn_left{
     background: url(../images/menus/icon_slider_arr.png) no-repeat;
     position: absolute;
-    top: 200px;
-    left: 0;
+    top: 180px;
+    left: -20px;
     width: 50px;
     height: 50px;
     text-indent: -9999px;

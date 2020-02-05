@@ -68,67 +68,70 @@ class Home extends Component {
                   anchorEl={this.state.anchorEl}
                   open={Boolean(this.state.anchorEl)}
                   onClose={this.handleClose}
-                  
                 >
-                  {this.state.items.map((item,index )=> (
-                    <MenuItem >{item}</MenuItem>
+                  {this.state.items.map((item, index) => (
+                    <MenuItem>{item}</MenuItem>
                   ))}
                 </Menu>
               </>
             ))}
           </Toolbar>
         </div>
+        <div className="l_wrapper">
+          <div className="main">
+            <div className="main-wrapper">
+              <img
+                className="main-cover"
+                src={MainImage[this.state.currentImage]}
+                alt=""
+              />
+              <div className="quick_link">
+                <div className="quick-content clearfix">
+                  <div className="store">
+                    <Link to="/store">
+                      <strong>매장찾기</strong>
+                    </Link>
+                  </div>
+                  <div className="youtube">
+                    <a href="https://youtu.be/ZR1smxzfu90">
+                      <strong>꿀조합 영상 보러가기</strong>
+                    </a>
+                  </div>
 
-        <div className="main">
-          <div className="main-wrapper">
-            <img
-              className="main-cover"
-              src={MainImage[this.state.currentImage]}
-              alt=""
-            />
-            <div className="quick_link">
-              <div className="quick-content clearfix">
-                <div className="store">
-                  <Link to="/store">
-                    <strong>매장찾기</strong>
-                  </Link>
-                </div>
-                <div className="youtube">
-                  <a href="https://youtu.be/ZR1smxzfu90">
-                    <strong>꿀조합 영상 보러가기</strong>
-                  </a>
-                </div>
-
-                <div className="franchise clearfix">
-                  <a href="##">
-                    <strong>가맹신청ㆍ문의</strong>
-                  </a>
+                  <div className="franchise clearfix">
+                    <a href="##">
+                      <strong>가맹신청ㆍ문의</strong>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="section">
-          <div className="section-wrapper">
-            <div className="section-title">
-              <h2 className="section-mystore">
-                <span>나만의</span>
-                <span>꿀조합</span>
-              </h2>
-              <h2 className="section-title-left">
-                Subway's Best Combination Top 8
-              </h2>
+          <div className="section">
+            <div className="section-wrapper">
+              <div className="section-title">
+                <h2 className="section-mystore">
+                  <span>나만의</span>
+                  <span>꿀조합</span>
+                </h2>
+                <h2 className="section-title-left">
+                  Subway's Best Combination Top 8
+                </h2>
+              </div>
+              <img src={combination} alt="" />
+
+              <div className="section-mystore-make">
+                <button className="btn btn_mystore" >
+                <Link className="btn-link"to={"/combination"}>만들러가기</Link>
+                </button>
+              </div>
             </div>
-            <img src={combination} alt="" />
-                   
-            <div className="section-mystore-make">
-              <Link  to={"/combination"}>만들러가기</Link>
+            <div className="slider_wrapper">
+              <Slider />
             </div>
           </div>
-          <div className="slider_wrapper">
-            <Slider />
-          </div>
         </div>
+
         <div className="footer">footer</div>
       </>
     );
