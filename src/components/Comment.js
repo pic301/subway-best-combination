@@ -104,7 +104,7 @@ class Comment extends Component {
     const { id, deleteComment } = this.props
     return (
       <div className="comment">
-        <img src={user} alt="user-image"/>
+        <img src={user} alt="profile"/>
         <p className="comment-author">{this.props.author}</p>
         <p className="comment-text">{this.props.text}</p>
         <div className="comment-delete">
