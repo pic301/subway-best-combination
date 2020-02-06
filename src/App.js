@@ -1,4 +1,4 @@
-//
+//dependency
 import React from "react";
 import { BrowserRouter as Router,Switch,Route,} from 'react-router-dom' 
 
@@ -7,6 +7,7 @@ import Detail from './pages/detail'
 import Home from './pages/Home'
 import Combination from './pages/Combination'
 import store from './pages/store'
+import Login from './pages/login'
 
 const App = () => {
   
@@ -18,6 +19,8 @@ const App = () => {
           <Route exact path={"/detail/:sandwichId/:sandwichtitle/:sandwichDesc"} component={Detail}></Route>
           <Route exact path={"/combination"} component={Combination}></Route>
           <Route exact path={"/store"} component={store}></Route>
+          <Route exact path={"/login"} component={Login}></Route>
+          
         </Switch>
       </Router>
     </div>
