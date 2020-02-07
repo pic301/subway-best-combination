@@ -9,7 +9,8 @@ export default class CommentBox extends Component {
       { id: 1, author: "써브웨이 매니아", text: "서브웨이 엄청좋아요" },
       { id: 2, author: "샌드위치 좋아", text: "서브웨이 맛있어요" },
       { id: 3, author: "I love subway", text: "서브웨이는 짱이에요" }
-    ]
+    ],
+    star: 0
   };
 
   _addComment = (author, text) => {
@@ -89,6 +90,9 @@ class CommentForm extends Component {
               this._text = textarea;
             }}
           ></textarea>
+          <div className="comment-star${star}">
+            star
+          </div>
         </div>
         <div className="comment-form-actions">
           <button type="submit">댓글 등록</button>

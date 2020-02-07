@@ -1,3 +1,4 @@
+
 .comment-box {
   max-width: 37.5rem;
   color: #fff;
@@ -38,6 +39,10 @@
 .comment-form-fields :focus{
   border-bottom-color: #909090;
   outline: none;
+}
+
+.comment-star{
+  background-color: red;
 }
 .comment-form textarea::placeholder {  
   line-height: 10;                
