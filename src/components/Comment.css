@@ -40,10 +40,10 @@
   border-bottom-color: #909090;
   outline: none;
 }
-
-.comment-star{
-  background-color: red;
+.comment-star-container{
+  display: flex;
 }
+
 .comment-form textarea::placeholder {  
   line-height: 10;                
 }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Comment.css";
+import StarRating from './star'
 import user from '../images/user/user.png'
 
 export default class CommentBox extends Component {
@@ -10,7 +11,7 @@ export default class CommentBox extends Component {
       { id: 2, author: "샌드위치 좋아", text: "서브웨이 맛있어요" },
       { id: 3, author: "I love subway", text: "서브웨이는 짱이에요" }
     ],
-    star: 0
+    starNumber: 0
   };
 
   _addComment = (author, text) => {
@@ -56,7 +57,7 @@ export default class CommentBox extends Component {
           </h4>
         {   this.state.comments.map(comment => (
         <Comment key={comment.id} id={comment.id} deleteComment={this._deleteComment}  author={comment.author} text={comment.text} />
-        ))};
+        ))}
         </div>
       </>
     );
@@ -90,9 +91,7 @@ class CommentForm extends Component {
               this._text = textarea;
             }}
           ></textarea>
-          <div className="comment-star${star}">
-            star
-          </div>
+         <StarRating/>
         </div>
         <div className="comment-form-actions">
           <button type="submit">댓글 등록</button>
@@ -115,6 +114,6 @@ class Comment extends Component {
             <button  onClick={() => deleteComment(id)}>삭제</button>
         </div>
       </div>
-    );
+    )
   }
 }
