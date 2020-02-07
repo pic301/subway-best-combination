@@ -3,6 +3,8 @@
 // =========================
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import fire from "../components/firebaseConfig";
+
 
 import "./Home.css";
 import HomeLayout from "../components/HomeLayout";
@@ -23,25 +25,28 @@ const MainImage = [MainImage1, MainImage2];
 
 class Home extends Component {
   state = {
+    user:"",
     menus: ["메뉴소개", "이용방법", "새소식", "써브웨이", "가맹점"],
     items: [
-      "샌드위치",
+      ["샌드위치",
       "서브웨이 이용방법",
       "이벤트 프로모션",
       "써브웨이 역사",
-      "써브웨이 프렌차이즈"
+      "써브웨이 프렌차이즈"],["2","22","222"]
     ],
     anchorEl: null,
     currentImage: 0
   };
-
-  handleClick = event => {
-    this.setState({ anchorEl: event.currentTarget });
+  _logout = () => {
+    fire.auth().signOut()
+  }
+  handleClick = e => {
+    this.setState({ anchorEl: e.currentTarget });
   };
 
-  handleClose = event => {
+  handleClose = e => {
     this.setState({ anchorEl: null });
-    console.log(event.target);
+    console.log(e.target);
   };
   componentDidMount() {
     setInterval(
@@ -58,10 +63,14 @@ class Home extends Component {
       <>
         <div className="header">
           <HomeLayout />
+         {this.state.user && this.state.user !== null 
+            ?<button onClick={this._logout}>Logout</button>
+            :""
+          }
           <Toolbar className="header-nav">
             {this.state.menus.map((menu, i) => (
               <>
-                <Button key={i} id="nav_btn" onClick={this.handleClick}>
+                <Button key={i} id="nav_btn"  onClick={this.handleClick}>
                   {menu}
                 </Button>
                 <Menu
