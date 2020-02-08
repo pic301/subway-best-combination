@@ -1,6 +1,8 @@
+/* =====================================
+              commentBox
+===================================== */
 .comment-box {
   max-width: 37.5rem;
-  color: #fff;
   background-color: #e8e8e8;;
   border-radius: 0.875rem;
   padding: 0.2rem 1rem 2rem;
@@ -18,6 +20,12 @@
 .comment-box h3{
   color:#029132;
 }
+
+/* =====================================
+              commentForm
+===================================== */
+
+
 .comment-form {
   background-color: #fff;
   border-radius: 0.25rem;
@@ -39,15 +47,47 @@
   border-bottom-color: #909090;
   outline: none;
 }
+.comment-star-container{
+  display: flex;
+}
+
 .comment-form textarea::placeholder {  
   line-height: 10;                
+}
+.comment-form-actions  {
+  display: flex;
+  justify-content: flex-end;
+  
 }
 .comment-form-actions button {
   background-color:#029132;
   border-radius: 5px;
-  color: #ffffff;
   padding: 0px 10px;
+  color: #ffffff
 }
+.comment-form-container{
+  display: flex;
+  height: 100%;
+  justify-content: flex-start;
+  
+}
+.comment-form-lating{
+  font-size: 1rem;
+  color: #999999;
+}
+.comment-lating-container{
+  position: relative;
+}
+.comment-lating-text{
+  padding: 5px;
+  font-size: 1.3rem;
+  color: #999999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+}
+
 
 .comment {
   border-top: 0.125rem solid #404040;;
@@ -73,6 +113,9 @@
 .comment-count {
   color: #404040;
 }
+/* =====================================
+              comment
+===================================== */
 
 .comment {
   border-top: 0.125rem solid #404040;
@@ -83,6 +126,30 @@
   font-style: italic;
   margin-left: 1rem;
 }
+.comment-rating{
+  font-weight: bold;
+  margin-left: 1rem;
+}
+.comment-rating1{
+  width: 125px;
+  height: 113px;
+  background: url(../images/common/emojis.png) -677px -86px no-repeat;}
+.comment-rating2{
+  width: 114px;
+  height: 113px;
+  background: url(../images/common/emojis.png) -882px -86px no-repeat;}
+.comment-rating3{
+  width: 114px;
+  height: 113px;
+  background: url(../images/common/emojis.png) -882px -1082px no-repeat;}
+.comment-rating4{
+  width: 114px;
+  height: 113px;
+  background: url(../images/common/emojis.png) -284px -484px no-repeat;}
+.comment-rating5{
+  width: 114px;
+  height: 113px;
+  background: url(../images/common/emojis.png) -85px -484px no-repeat;}
 
 .comment-delete {
   position: absolute;
