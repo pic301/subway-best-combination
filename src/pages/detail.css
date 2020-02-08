@@ -1,8 +1,16 @@
+/* =============================================
+        layout
+============================================= */
 
-.detail-wrapper{
-    background-color: rgb(232, 232, 232);
+.detail-container{
     width: 1800px;
     margin: 0 auto;
+}
+.detail-wrapper{
+    background-color: rgb(232, 232, 232);
+    margin:0 auto;
+    width: 100%;
+    
 }
 .detail-cover0{
     background: url(../images/detail/0.jpg) 0 0 no-repeat;

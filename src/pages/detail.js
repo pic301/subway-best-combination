@@ -107,6 +107,7 @@ class Detail extends Component {
       <>
         <HomeLayout />
         <div className="detail">
+          <div className="detail-container">
           <div className="detail-wrapper">
             <div className="detail-content">
               <div className="detail-title">
@@ -136,7 +137,13 @@ class Detail extends Component {
             </div>
             <CommentBox />
           </div>
+            <CommentBox/>
+          </div>
         </div>
+<<<<<<< Updated upstream
+=======
+       
+>>>>>>> Stashed changes
       </>
     );
   }
