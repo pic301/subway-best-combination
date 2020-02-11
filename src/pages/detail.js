@@ -135,15 +135,10 @@ class Detail extends Component {
                 </ul>
               </div>
             </div>
+          </div>
             <CommentBox />
           </div>
-            <CommentBox/>
-          </div>
         </div>
-<<<<<<< Updated upstream
-=======
-       
->>>>>>> Stashed changes
       </>
     );
   }
