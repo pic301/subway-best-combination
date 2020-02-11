@@ -115,6 +115,7 @@ class Combination extends Component {
       화이트: white,
       "플랫 브래드": FlatBread,
       위트: wheat,
+
       //토핑
       "베이컨 비츠": BaconBits,
       쉬림프: Shrimp,
@@ -214,6 +215,16 @@ class Combination extends Component {
     }
   };
   onRemove = index => {
+   if( index === 0 ){
+    const result = window.confirm("빵을 삭제할시 처음부터 진행됩니다");
+    if(result){
+      this.setState({
+        combination:[],
+        combinationImages:[],
+        step:0
+      })
+    }
+   }else{
     this.setState({
       combination: this.state.combination.filter((item, i) => i !== index)
     });
@@ -222,6 +233,8 @@ class Combination extends Component {
         (item, i) => i !== index
       )
     });
+   }
+ 
     console.log(this.state.combination);
   };
 
@@ -337,6 +350,7 @@ class Combination extends Component {
             </>
           ))}
         </div>
+        <a>나만의 꿀조합 게시글 작성하러 가기</a>
       </div>
     );
   }
