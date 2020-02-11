@@ -54,6 +54,7 @@ import sweetOnion from "../images/recipes/sweetOnion.jpg";
 class Combination extends Component {
   state = {
     breadSelectError: false,
+    noBreadError: false,
     images: [order00, order01, order02, order03, order04],
     step: 0,
     materials: [
@@ -158,21 +159,36 @@ class Combination extends Component {
     if (this.state.step > 3) {
       this.setState({ step: 0 });
     } else {
-      this.setState({ step: this.state.step + 1 });
-      this.setState({ breadSelectError: false })
+      if (this.state.step === 0 && this.state.combination.length === 0) {
+        this.setState({
+          noBreadError: true
+        });
+        return;
+      } else {
+        this.setState({ step: this.state.step + 1 });
+        this.setState({ breadSelectError: false });
+      }
     }
     console.log(this.state.step);
   };
   prevStep = () => {
-    this.state.step === 0
-      ? this.setState({ step: 4 })
-      : this.setState({ step: this.state.step - 1 });
-    console.log(this.state.step);
+    if(this.state.combination.length !== 0){
+      if(this.state.step === 0){
+       this.setState({ step: 4 })
+       }
+      else {this.setState({ step: this.state.step - 1 })}
+    
+    }else{
+      this.setState({
+        noBreadError: true
+      });
+    }
   };
   onClick = e => {
     if (this.state.step === 0) {
+      this.setState({ noBreadError: false})
       if (this.state.combination.length > 0) {
-        this.setState({breadSelectError: true})
+        this.setState({ breadSelectError: true });
         return;
       } else {
         this.setState({
@@ -198,7 +214,6 @@ class Combination extends Component {
     }
   };
   onRemove = index => {
-    console.log(index);
     this.setState({
       combination: this.state.combination.filter((item, i) => i !== index)
     });
@@ -265,12 +280,12 @@ class Combination extends Component {
             <div className="step-content">
               <img src={this.state.images[this.state.step]} alt="" />
 
-               {/* 빵 두개이상 선택시 error */}
+              {/* 빵 두개이상 선택시 error */}
               <div className="step-content-breadSelectError">
-                {this.state.breadSelectError 
-                ? "빵은 한 개만 골라주세요!"
-                : ""
-                }
+                {this.state.breadSelectError && this.state.breadSelectError ? "빵은 한 개만 골라주세요!" : ""}
+
+                {/* 빵을 선택하지 않을시 error */}
+                {this.state.noBreadError && this.state.noBreadError ? "빵을 선택해주세요":""}
               </div>
               {this.state.materials[this.state.step].map((item, index) => (
                 <button
@@ -315,7 +330,6 @@ class Combination extends Component {
             <button className="btn btn-next" onClick={this.nextStep}>
               다음
             </button>
-          
           </div>
           {this.state.combinationImages.map((item, index) => (
             <>
