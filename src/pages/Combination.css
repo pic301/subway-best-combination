@@ -60,6 +60,12 @@
     width: 700px;
     height: 420px;;
 }
+.step-content-breadSelectError{
+    position: absolute;
+    left: 220px;
+    font-size: 1.5rem;
+    color: rgb(221, 27, 27);
+}
 .step-card-left::before{
     content:'나만의 꿀조합 레시피';
     color: #ffc300;

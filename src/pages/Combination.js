@@ -53,6 +53,7 @@ import sweetOnion from "../images/recipes/sweetOnion.jpg";
 
 class Combination extends Component {
   state = {
+    breadSelectError: false,
     images: [order00, order01, order02, order03, order04],
     step: 0,
     materials: [
@@ -158,6 +159,7 @@ class Combination extends Component {
       this.setState({ step: 0 });
     } else {
       this.setState({ step: this.state.step + 1 });
+      this.setState({ breadSelectError: false })
     }
     console.log(this.state.step);
   };
@@ -168,24 +170,42 @@ class Combination extends Component {
     console.log(this.state.step);
   };
   onClick = e => {
-    this.setState({
-      combination: this.state.combination.concat(e.target.name)
-    });
-    this.setState({
-      combinationImages: this.state.combinationImages.concat(
-        this.state.recipeImages[e.target.name]
-      )
-    });
-    console.log(this.state.combinationImages);
-    console.log(this.state.combination);
+    if (this.state.step === 0) {
+      if (this.state.combination.length > 0) {
+        this.setState({breadSelectError: true})
+        return;
+      } else {
+        this.setState({
+          combination: this.state.combination.concat(e.target.name)
+        });
+        this.setState({
+          combinationImages: this.state.combinationImages.concat(
+            this.state.recipeImages[e.target.name]
+          )
+        });
+      }
+    } else {
+      this.setState({
+        combination: this.state.combination.concat(e.target.name)
+      });
+      this.setState({
+        combinationImages: this.state.combinationImages.concat(
+          this.state.recipeImages[e.target.name]
+        )
+      });
+      console.log(this.state.combinationImages);
+      console.log(this.state.combination);
+    }
   };
-  onRemove = (index) => {
-    console.log(index)
+  onRemove = index => {
+    console.log(index);
     this.setState({
-      combination: this.state.combination.filter((item, i)=> i!== index)
+      combination: this.state.combination.filter((item, i) => i !== index)
     });
     this.setState({
-      combinationImages: this.state.combinationImages.filter((item,i) => i !== index)
+      combinationImages: this.state.combinationImages.filter(
+        (item, i) => i !== index
+      )
     });
     console.log(this.state.combination);
   };
@@ -244,6 +264,14 @@ class Combination extends Component {
             </ul>
             <div className="step-content">
               <img src={this.state.images[this.state.step]} alt="" />
+
+               {/* 빵 두개이상 선택시 error */}
+              <div className="step-content-breadSelectError">
+                {this.state.breadSelectError 
+                ? "빵은 한 개만 골라주세요!"
+                : ""
+                }
+              </div>
               {this.state.materials[this.state.step].map((item, index) => (
                 <button
                   className="btn btn-recipe"
@@ -287,6 +315,7 @@ class Combination extends Component {
             <button className="btn btn-next" onClick={this.nextStep}>
               다음
             </button>
+          
           </div>
           {this.state.combinationImages.map((item, index) => (
             <>
