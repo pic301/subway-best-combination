@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import Combination from './pages/Combination'
 import store from './pages/store'
 import Login from './pages/login'
+import Post from './pages/Post'
 
 const App = () => {
   
@@ -20,6 +21,8 @@ const App = () => {
           <Route exact path={"/combination"} component={Combination}></Route>
           <Route exact path={"/store"} component={store}></Route>
           <Route exact path={"/login"} component={Login}></Route>
+          <Route exact path={"/post"} component={Post}></Route>
+          
           
         </Switch>
       </Router>

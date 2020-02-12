@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./Combination.css";
+import { Link } from 'react-router-dom'
+
 import order00 from "../images/combination/order00.png";
 import order01 from "../images/combination/order01.png";
 import order02 from "../images/combination/order02.png";
@@ -173,13 +175,13 @@ class Combination extends Component {
     console.log(this.state.step);
   };
   prevStep = () => {
-    if(this.state.combination.length !== 0){
-      if(this.state.step === 0){
-       this.setState({ step: 4 })
-       }
-      else {this.setState({ step: this.state.step - 1 })}
-    
-    }else{
+    if (this.state.combination.length !== 0) {
+      if (this.state.step === 0) {
+        this.setState({ step: 4 });
+      } else {
+        this.setState({ step: this.state.step - 1 });
+      }
+    } else {
       this.setState({
         noBreadError: true
       });
@@ -187,7 +189,7 @@ class Combination extends Component {
   };
   onClick = e => {
     if (this.state.step === 0) {
-      this.setState({ noBreadError: false})
+      this.setState({ noBreadError: false });
       if (this.state.combination.length > 0) {
         this.setState({ breadSelectError: true });
         return;
@@ -215,26 +217,26 @@ class Combination extends Component {
     }
   };
   onRemove = index => {
-   if( index === 0 ){
-    const result = window.confirm("빵을 삭제할시 처음부터 진행됩니다");
-    if(result){
+    if (index === 0) {
+      const result = window.confirm("빵을 삭제할시 처음부터 진행됩니다");
+      if (result) {
+        this.setState({
+          combination: [],
+          combinationImages: [],
+          step: 0
+        });
+      }
+    } else {
       this.setState({
-        combination:[],
-        combinationImages:[],
-        step:0
-      })
+        combination: this.state.combination.filter((item, i) => i !== index)
+      });
+      this.setState({
+        combinationImages: this.state.combinationImages.filter(
+          (item, i) => i !== index
+        )
+      });
     }
-   }else{
-    this.setState({
-      combination: this.state.combination.filter((item, i) => i !== index)
-    });
-    this.setState({
-      combinationImages: this.state.combinationImages.filter(
-        (item, i) => i !== index
-      )
-    });
-   }
- 
+
     console.log(this.state.combination);
   };
 
@@ -295,10 +297,14 @@ class Combination extends Component {
 
               {/* 빵 두개이상 선택시 error */}
               <div className="step-content-breadSelectError">
-                {this.state.breadSelectError && this.state.breadSelectError ? "빵은 한 개만 골라주세요!" : ""}
+                {this.state.breadSelectError && this.state.breadSelectError
+                  ? "빵은 한 개만 골라주세요!"
+                  : ""}
 
                 {/* 빵을 선택하지 않을시 error */}
-                {this.state.noBreadError && this.state.noBreadError ? "빵을 선택해주세요":""}
+                {this.state.noBreadError && this.state.noBreadError
+                  ? "빵을 선택해주세요"
+                  : ""}
               </div>
               {this.state.materials[this.state.step].map((item, index) => (
                 <button
@@ -350,7 +356,13 @@ class Combination extends Component {
             </>
           ))}
         </div>
-        <a>나만의 꿀조합 게시글 작성하러 가기</a>
+       <div className="post-container">
+          <Link to={{
+            pathname:'/post',
+            combination:this.state.combination
+          }}>나만의 꿀조합 게시글 작성하러 가기</Link>
+         
+       </div>
       </div>
     );
   }
