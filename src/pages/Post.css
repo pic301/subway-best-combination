@@ -1,0 +1,81 @@
+/* =====================================
+    layout
+===================================== */
+.post-wrapper{
+    width: 1280px;
+    margin: 0 auto;
+}
+/* =====================================
+    button
+===================================== */
+
+.post-button{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.post-button button{
+    background-color: #029132;
+    color: #ffffff;
+    padding: 10px 20px;
+    margin-right: 12px;
+}
+
+
+/* =====================================
+    component
+===================================== */
+   
+.post-title ::before {
+    content:' ';
+    background-image: url(../images/logo/bee.png);
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-size: 100px 100px;
+    vertical-align: middle
+}  
+.post-title{
+    font-size: 3rem;
+    text-align: center;
+    color:#029132;
+    
+}
+.post-title> span{
+    color: #ffc20e;
+}
+.post-form > label{
+    font-size: 1.5rem;
+    color: #ffc20e;
+       
+}
+.post-form > label > span{
+    font-size: 1.5rem;
+    color: #029132;
+       
+}
+.post-form > label > input{
+    border-bottom: 1px solid green;
+    line-height: 1
+    
+       
+}
+.post-form  textarea{
+    background-image: -webkit-linear-gradient(white, white 30px, #ccc 30px, #ccc 31px, white 31px);
+    background-image: -moz-linear-gradient(white, white 30px, #ccc 30px, #ccc 31px, white 31px);
+    background-image: -ms-linear-gradient(white, white 30px, #ccc 30px, #ccc 31px, white 31px);
+    background-image: -o-linear-gradient(white, white 30px, #ccc 30px, #ccc 31px, white 31px);
+    background-image: linear-gradient(white, white 30px, #ccc 30px, #ccc 31px, white 31px);
+    background-size: 100% 31px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    line-height: 31px;
+    font-family: Arial, Helvetica, Sans-serif;
+    padding: 8px;
+    font-size: 1.1rem;
+}
+.post-combination{
+    color: #999999;
+    font-size:1.4rem;
+}
