@@ -7,7 +7,6 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { db } from "../components/firebaseConfig";
 import Box from '@material-ui/core/Box'
-
 import amber from '@material-ui/core/colors/amber';
 
 
@@ -95,12 +94,15 @@ const Board = () => {
         </Box>
      
       </Box>
-         
       )
-
       )}
- 
+      <Picture/>
     </div>
   )
 };
 export default Board;
+
+
+
+
+

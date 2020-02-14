@@ -18,6 +18,10 @@ class Post extends Component {
   onSubmit = (e) => {
     e.preventDefault()
     const { combination } = this.props.location
+      if(!combination){
+        this.props.history.push('/combination')
+        return alert("조합을 만들어주세요")
+      }
     console.log(combination)
     db.collection('board').add({
       title: this.state.title,
