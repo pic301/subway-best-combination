@@ -9,6 +9,7 @@ import Combination from './pages/Combination'
 import store from './pages/store'
 import Login from './pages/login'
 import Post from './pages/Post'
+import Board from './pages/board'
 
 const App = () => {
   
@@ -22,6 +23,7 @@ const App = () => {
           <Route exact path={"/store"} component={store}></Route>
           <Route exact path={"/login"} component={Login}></Route>
           <Route exact path={"/post"} component={Post}></Route>
+          <Route exact path={"/board"} component={Board}></Route>
           
           
         </Switch>

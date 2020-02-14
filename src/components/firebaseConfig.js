@@ -1,6 +1,6 @@
 import firebase from 'firebase/app'
 
-import 'firebase/database'
+import 'firebase/firestore'
 import 'firebase/auth'
 import 'firebase/storage'
 
@@ -18,7 +18,10 @@ var firebaseConfig = {
  const fire = firebase.initializeApp(firebaseConfig);
 export const provider = new firebase.auth.GoogleAuthProvider()
 export const db = firebase.firestore()
+<<<<<<< HEAD
 export const storage = firebase.storage()
 
+=======
+>>>>>>> feature/board
 
 export default fire;
