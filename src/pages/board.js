@@ -6,6 +6,11 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { db } from "../components/firebaseConfig";
+import Box from '@material-ui/core/Box'
+
+import amber from '@material-ui/core/colors/amber';
+
+
 const useStyles = makeStyles({
   root: {
     minWidth: 275
@@ -16,12 +21,20 @@ const useStyles = makeStyles({
     transform: "scale(0.8)"
   },
   title: {
-    fontSize: 14
+    fontSize: 30,
+    color:amber.A400
   },
   pos: {
     marginBottom: 12
   }
 });
+const defaultProps = {
+  bgcolor: 'background.paper',
+  m: 1,
+  border: 3,
+  style: { width: '30%', height: '25%' },
+
+};
 
 const Board = () => {
   const classes = useStyles();
@@ -57,10 +70,12 @@ const Board = () => {
 
   return (
     <div>
-      {cards.cards && cards["cards"].map(card => (
-         <Card className={classes.root}>
+      {cards.cards && cards["cards"].map((card,id )=> (
+        <Box key={id} display="flex" justifyContent="flex-start">
+        <Box borderColor="#2e7d32" {...defaultProps} >
+        <Card className={classes.root}>
          <CardContent>
-           <Typography className={classes.title} color="textSecondary" gutterBottom>
+           <Typography className={classes.title}  gutterBottom>
               꿀조합
            </Typography>
            <Typography variant="h5" component="h2">
@@ -77,6 +92,10 @@ const Board = () => {
            <Button size="small">Learn More</Button>
          </CardActions>
        </Card>
+        </Box>
+     
+      </Box>
+         
       )
 
       )}
