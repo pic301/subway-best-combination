@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Post.css";
+import Picture from '../components/Picture'
 import { db } from '../components/firebaseConfig'
 
 class Post extends Component {
@@ -68,6 +69,7 @@ class Post extends Component {
             <button >게시판에 올리기</button>
             </div>
           </form>
+          <Picture/>
         </div>
       </div>
     );

@@ -1,0 +1,30 @@
+
+.btn{
+    background-color:#029132;
+    color: #ffffff;
+    border-radius: 0.5rem;
+    cursor: pointer; 
+    padding: 0.5rem 0.75rem;
+}
+.btn_image{
+   margin: 5px 0 0 0;
+}
+.filebox{
+    float: left;
+}
+.filebox label { 
+    display: inline-block; 
+    padding: 0.5rem 0.75rem;
+    color: #ffffff;
+    font-size:inherit;
+    background-color: #029132;
+    border-radius: 0.5rem;
+    cursor: pointer; 
+    margin: 5px 5px 0 0;
+    
+  }
+  .filebox input[type="file"] {
+    position: absolute; 
+    overflow: hidden;
+    clip:rect(0,0,0,0); 
+  }
