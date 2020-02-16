@@ -1,13 +1,10 @@
-
-.btn{
-    background-color:#029132;
-    color: #ffffff;
-    border-radius: 0.5rem;
-    cursor: pointer; 
-    padding: 0.5rem 0.75rem;
-}
 .btn_image{
    margin: 5px 0 0 0;
+   background-color:#029132;
+   color: #ffffff;
+   border-radius: 0.5rem;
+   cursor: pointer; 
+   padding: 0.5rem 0.75rem;
 }
 .filebox{
     float: left;

@@ -2,9 +2,8 @@
  import { storage } from '../components/firebaseConfig'
  import './Picture.css'
  
- const Picture = () => {
+ const Picture = ({imageAsUrl,handlerImageAsUrl}) => {
     const[imageAsFile, setImageAsFile] = useState('')
-    const[imageAsUrl, setImageAsUrl] = useState({imgUrl:''})
     console.log(imageAsFile)
 
  const handleImageAsFile = (e) => {
@@ -14,6 +13,7 @@
   const handleFireBaseUpload = e => {
     e.preventDefault()
   console.log('start of upload')
+ 
   if(imageAsFile === '') {
     console.error(`not an image, the image file is a ${typeof(imageAsFile)}`)
   }
@@ -30,7 +30,7 @@
     storage.ref('images').child(imageAsFile.name).getDownloadURL()
      .then(fireBaseUrl => {
        console.log(fireBaseUrl)
-       setImageAsUrl(prevObject => ({...prevObject, imgUrl: fireBaseUrl}))
+       handlerImageAsUrl(fireBaseUrl)
        console.log(imageAsUrl)
      })
   })
@@ -39,11 +39,9 @@
    return (
      <div>
        <form onSubmit={handleFireBaseUpload}>
-         <img classname="upload_image"src={imageAsUrl.imgUrl ||"https://via.placeholder.com/400x300"} 
-         alt="image tag" width="300px" height="300px"/>
          <button className="btn btn_image">업로드</button>
-         <div class="filebox"> 
-          <label for="ex_file">파일추가하기</label> 
+         <div className="filebox"> 
+          <label htmlFor="ex_file">파일추가하기</label> 
             <input type="file" id="ex_file" onChange={handleImageAsFile}/> 
           </div>
        </form>
