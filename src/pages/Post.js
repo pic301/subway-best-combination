@@ -2,12 +2,18 @@ import React, { Component } from "react";
 import "./Post.css";
 import Picture from '../components/Picture'
 import { db } from '../components/firebaseConfig'
+import  firebase  from '../components/firebaseConfig'
 
 class Post extends Component {
   state = {
     title: "",
-    desc: ""
+    desc: "",
+    imageAsUrl:"",
   };
+
+handlerImageAsUrl=( fireBaseUrl ) => {
+  this.setState(() => ({imageAsUrl: fireBaseUrl}))
+}
 
   onChange = (e) =>{
     console.log(e.target.name)
@@ -28,6 +34,8 @@ class Post extends Component {
       title: this.state.title,
       desc: this.state.desc,
       combination: [...combination],
+      url:this.state.imageAsUrl,
+      createdAt: new Date()
     }).then(function() {
       console.log("Document successfully written!");
   })
@@ -39,9 +47,11 @@ class Post extends Component {
     this.setState({
       title: "",
       desc: "",
+      imageAsUrl:"",
     })
   }
   render() {
+    console.log(this.state.imageAsUrl)
     return (
       <div className="post">
         <div className="post-wrapper">
@@ -58,6 +68,8 @@ class Post extends Component {
               꿀조합 <span>설명:</span>
               <textarea name="desc"  cols="10" rows="10" value={this.state.desc} onChange={this.onChange} required></textarea>
             </label>
+            <img className="upload_image"src={this.state.imageAsUrl ||"https://via.placeholder.com/400x300"} 
+         alt="image tag" width="300px" height="300px"/>
             <br />
             {this.props.location.combination &&
               this.props.location.combination.map((item, i) => (
@@ -69,7 +81,7 @@ class Post extends Component {
             <button >게시판에 올리기</button>
             </div>
           </form>
-          <Picture/>
+          <Picture imageAsUrl={this.imageAsUrl} handlerImageAsUrl={this.handlerImageAsUrl}/>
         </div>
       </div>
     );
