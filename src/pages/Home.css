@@ -122,7 +122,8 @@ input,button,submit { border:none; }
   position: relative;
   margin-left: -101px;
 }
-.header-logo {
+
+.header-link {
   position: absolute;
   left: 50%;
   display: inline-block;
@@ -133,6 +134,7 @@ input,button,submit { border:none; }
   height: 40px;
   text-indent: -9999px;
 }
+
 .header-menu {
   float: right;
 }
@@ -165,15 +167,20 @@ input,button,submit { border:none; }
 .header-nav {
   width: 980px;
   margin: 0px auto;
+  display:flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
-#nav_btn {
+
+.nav-menu {
   color: #292929;
   letter-spacing: -0.04em;
   font-size: 18px;
   font-weight: bold;
   margin-left: 110px;
 }
+
 /* 
 =============================
     main

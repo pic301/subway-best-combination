@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 const HomeLayout = () => {
     return (
         <div className="header-content clearfix">
         <div className="header-logo">
-          <a href="#sdf">subway</a>
+          <Link className="header-link" to="/">subway</Link>
         </div>
 
         <ul className="header-menu ">

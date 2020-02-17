@@ -7,7 +7,6 @@ import fire from "../components/firebaseConfig";
 
 
 import "./Home.css";
-import HomeLayout from "../components/HomeLayout";
 import Slider from "../components/Slider";
 import MainImage1 from "../images/common/1.jpg";
 import MainImage2 from "../images/common/2.jpg";
@@ -16,32 +15,31 @@ import combination from "../images/common/combination.png";
 // =========================
 //     MaterialUI
 // =========================
-import Button from "@material-ui/core/Button";
-import Toolbar from "@material-ui/core/Toolbar";
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
 
 const MainImage = [MainImage1, MainImage2];
 
 class Home extends Component {
   state = {
     user:"",
-    menus: ["메뉴소개", "이용방법", "새소식", "써브웨이", "가맹점"],
-    items: [
-      ["샌드위치",
-      "서브웨이 이용방법",
-      "이벤트 프로모션",
-      "써브웨이 역사",
-      "써브웨이 프렌차이즈"],["2","22","222"]
-    ],
+    menus: [
+      {name:"메뉴소개",items:[1]}, 
+      {name:"이용방법",items:[2]}, 
+      {name:"새소식",items:[3]}, 
+      {name:"가맹점",items:[4]}, 
+      {name:"써브웨이",items:[5]}, 
+  ],
+   
     anchorEl: null,
-    currentImage: 0
+    currentImage: 0,
+    open: false
   };
   _logout = () => {
     fire.auth().signOut()
   }
   handleClick = e => {
     this.setState({ anchorEl: e.currentTarget });
+  
+    console.log(this.state.anchorEl)
   };
 
   handleClose = e => {
@@ -62,29 +60,10 @@ class Home extends Component {
     return (
       <>
         <div className="header">
-          <HomeLayout />
          {this.state.user && this.state.user !== null 
             ?<button onClick={this._logout}>Logout</button>
             :""
           }
-          <Toolbar className="header-nav">
-            {this.state.menus.map((menu, i) => (
-              <>
-                <Button key={i} id="nav_btn"  onClick={this.handleClick}>
-                  {menu}
-                </Button>
-                <Menu
-                  anchorEl={this.state.anchorEl}
-                  open={Boolean(this.state.anchorEl)}
-                  onClose={this.handleClose}
-                >
-                  {this.state.items.map((item, index) => (
-                    <MenuItem>{item}</MenuItem>
-                  ))}
-                </Menu>
-              </>
-            ))}
-          </Toolbar>
         </div>
         <div className="l_wrapper">
           <div className="main">
@@ -140,7 +119,6 @@ class Home extends Component {
             </div>
           </div>
         </div>
-
         <div className="footer">footer</div>
       </>
     );

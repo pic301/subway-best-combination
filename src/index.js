@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter } from 'react-router-dom';
 import App from "./App";
 import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
@@ -7,7 +8,8 @@ import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#eceff1"
+      main: "#009223",
+      secondary:"#ffc20e"
     }
   },
   typography: {
@@ -16,8 +18,10 @@ const theme = createMuiTheme({
 });
 
 ReactDOM.render(
+  <BrowserRouter>
   <MuiThemeProvider theme={theme}>
     <App />
-  </MuiThemeProvider>,
+  </MuiThemeProvider>
+  </BrowserRouter>,
   document.getElementById("root")
 );
