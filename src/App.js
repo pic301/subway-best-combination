@@ -1,9 +1,15 @@
 //dependency
-import React from "react";
+import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+
+//components
 import HomeLayout from "./components/HomeLayout";
 import NavTabs from "./components/Nav";
-import { withRouter } from "react-router-dom";
+import PrivateRoute from "./components/PrivateRoute";
+
+// Initialize Firebase
+import fire from "./components/firebaseConfig";
 
 //pages
 import Detail from "./pages/detail";
@@ -14,34 +20,104 @@ import Login from "./pages/login";
 import Post from "./pages/Post";
 import Board from "./pages/board";
 
-const App = ({ location }) => {
-  console.log(location);
-  return (
-    <>
-      <Router>
-        {location.pathname === "/login" ? (
-          ""
-        ) : (
-          <div>
-            <HomeLayout />
-            <NavTabs />
-          </div>
-        )}
-        <Switch>
-          <Route exact path={"/"} component={Home}></Route>
-          <Route
-            path={"/detail/:sandwichId/:sandwichtitle/:sandwichDesc"}
-            component={Detail}
-          ></Route>
-          <Route path={"/combination"} component={Combination}></Route>
-          <Route path={"/store"} component={store}></Route>
-          <Route path={"/post"} component={Post}></Route>
-          <Route path={"/board"} component={Board}></Route>
-          <Route path={"/login"} component={Login}></Route>
-        </Switch>
-      </Router>
-    </>
-  );
-};
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      loading: true,
+      authenticated: false,
+      user: null,
+      aaa: ""
+    };
+  }
+  componentDidMount() {
+    this.authListener();
+  }
+  authListener = () => {
+    fire.auth().onAuthStateChanged(user => {
+      console.log(user);
+      if (user) {
+        this.setState({
+          authenticated: true,
+          currentUser: user,
+          loading: false
+        });
+        localStorage.setItem("user", user.uid);
+        console.log(this.state.authenticated);
+      } else {
+        this.setState({
+          authenticated: false,
+          currentUser: null,
+          loading: false
+        });
+        localStorage.removeItem("user");
+      }
+    });
+  };
+
+  render() {
+    const { authenticated, loading } = this.state;
+    const { pathname } = this.props.location;
+
+    if (loading) {
+      return <p>Loading..</p>;
+    }
+
+    return (
+      <div>
+        <Router>
+          <Switch>
+            <Route path="/login" render={() => null} />
+            <Route
+              render={() => (
+                <>
+                  <HomeLayout />
+                  <NavTabs />
+                </>
+              )}
+            />
+          </Switch>
+          <>
+            <Switch>
+              <Route exact path={"/"} component={Home}></Route>
+              {/* <Route path={"/"} render={(props) => <Home {...props} keyProp={someValue} key={randomGen()}/>} /> */}
+              <Route exact path={"/login"} component={Login}></Route>
+              <PrivateRoute
+                exact
+                path={"/detail/:sandwichId/:sandwichtitle/:sandwichDesc"}
+                component={Detail}
+                authenticated={authenticated}
+              ></PrivateRoute>
+              <PrivateRoute
+                exact
+                path={"/combination"}
+                component={Combination}
+                authenticated={authenticated}
+              ></PrivateRoute>
+              <PrivateRoute
+                exact
+                path={"/store"}
+                component={store}
+                authenticated={authenticated}
+              ></PrivateRoute>
+              <PrivateRoute
+                exact
+                path={"/post"}
+                component={Post}
+                authenticated={authenticated}
+              ></PrivateRoute>
+              <PrivateRoute
+                exact
+                path={"/board"}
+                component={Board}
+                authenticated={authenticated}
+              ></PrivateRoute>
+            </Switch>
+          </>
+        </Router>
+      </div>
+    );
+  }
+}
 
 export default withRouter(App);
