@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./detail.css";
-import HomeLayout from "../components/HomeLayout";
 import CommentBox from "../components/Comment";
 
 import cheese from "../images/recipes/cheese.jpg";
@@ -105,7 +104,6 @@ class Detail extends Component {
     console.log(clickedSandwichId);
     return (
       <>
-        <HomeLayout />
         <div className="detail">
           <div className="detail-container">
           <div className="detail-wrapper">
