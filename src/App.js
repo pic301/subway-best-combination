@@ -1,6 +1,6 @@
 //dependency
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 
 //components
@@ -27,7 +27,7 @@ class App extends Component {
       loading: true,
       authenticated: false,
       user: null,
-      aaa: ""
+     
     };
   }
   componentDidMount() {
@@ -56,13 +56,14 @@ class App extends Component {
     });
   };
   render() {
-    console.log (localStorage.name)
+    console.log (localStorage["user"])
     const { authenticated, loading } = this.state;
 
     if (loading) {
       return <p>Loading..</p>;
     }
 
+    console.log(this.state.user)
     return (
       <div>
         <Router>
@@ -81,7 +82,6 @@ class App extends Component {
             <Switch>
               <Route exact path={"/login"} component={Login}></Route>
               <Route exact path={"/"} component={Home}></Route>
-              {/* <Route path={"/"} render={(props) => <Home {...props} keyProp={someValue} key={randomGen()}/>} /> */}
               <PrivateRoute
                 exact
                 path={"/detail/:sandwichId/:sandwichtitle/:sandwichDesc"}
@@ -114,6 +114,7 @@ class App extends Component {
               ></PrivateRoute>
             </Switch>
           </>
+          <Redirect from="/*" to="/" />
         </Router>
       </div>
     );

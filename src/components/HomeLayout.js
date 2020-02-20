@@ -2,6 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 const HomeLayout = () => {
+
+  const prepareAlert = () =>{
+    alert("아직 준비중입니다")
+  }
     return (
         <div className="header-content clearfix">
         <div className="header-logo">
@@ -10,18 +14,18 @@ const HomeLayout = () => {
 
         <ul className="header-menu ">
           <li>
-            <a href="#a">매장찾기</a>
+            <Link to="/store">매장찾기></Link>
           </li>
           <li>
-            <a href="#a">가맹신청ㆍ문의</a>
+            <Link to="/franchiseInquiry">가맹신청ㆍ문의</Link>
           </li>
           <li>
-            <a href="#a">고객센터</a>
+            <Link onClick={prepareAlert} to="##">고객센터</Link>
           </li>
           <li>
             <a
               className="global_subway"
-              href="http://www.subway.com/en-us/exploreourworld"
+              to="http://www.subway.com/en-us/exploreourworld"
               target="_blank"
               rel="noopener noreferrer"
               title="Global Subway"
