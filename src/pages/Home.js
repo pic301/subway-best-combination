@@ -2,7 +2,7 @@
 //    IMPORT DEPENDENCIES
 // =========================
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import fire from "../components/firebaseConfig";
 
 
@@ -20,7 +20,6 @@ const MainImage = [MainImage1, MainImage2];
 
 class Home extends Component {
   state = {
-    user:"",
     menus: [
       {name:"메뉴소개",items:[1]}, 
       {name:"이용방법",items:[2]}, 
@@ -35,6 +34,7 @@ class Home extends Component {
   };
   _logout = () => {
     fire.auth().signOut()
+    this.props.history.push("/login")
   }
   handleClick = e => {
     this.setState({ anchorEl: e.currentTarget });
@@ -47,7 +47,7 @@ class Home extends Component {
     console.log(e.target);
   };
   componentDidMount() {
-    setInterval(
+    this.interval =   setInterval(
       () =>
         this.state.currentImage === 0
           ? this.setState({ currentImage: 1 })
@@ -55,15 +55,21 @@ class Home extends Component {
       4000
     );
   }
+  componentWillUnmount(){
+    clearInterval(this.interval)
+  }
+
 
   render() {
     return (
       <>
         <div className="header">
-         {this.state.user && this.state.user !== null 
-            ?<button onClick={this._logout}>Logout</button>
-            :""
-          }
+            { localStorage.name  && localStorage.name !== "null"
+            ? <p className="header-username"> {`${localStorage.name}님 반갑습니다`}</p>
+            : <p className="header-username"> {`익명님 반갑습니다`}</p>
+            }
+              <button className="btn_logout" onClick={this._logout}>로그아웃</button>
+      
         </div>
         <div className="l_wrapper">
           <div className="main">
@@ -109,7 +115,7 @@ class Home extends Component {
               <img src={combination} alt="" />
 
               <div className="section-mystore-make">
-                <button className="btn btn_mystore" >
+                <button className="btn_mystore" >
                 <Link className="btn-link"to={"/combination"}>만들러가기</Link>
                 </button>
               </div>

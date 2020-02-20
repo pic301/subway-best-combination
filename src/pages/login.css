@@ -1,3 +1,33 @@
+/* ======================================
+ Button
+====================================== */
+.btn_google::before{
+    content: " ";
+    display: inline-block;
+    width: 15px;
+    height: 15px;;
+    background: url(../images/logo/logo-google-1991840_640.png)  no-repeat;
+    background-size: 100%;
+    background-color: #ffffff;
+    margin: 2px 2px 0 0 ;
+   
+}
+.btn_google{
+   
+
+}
+
+.login > button{
+    background-color: #029132;
+    border-radius: 5px;
+    color: white;
+    margin-top: 30px;
+    margin-left: 5px;
+    width: 80px;
+    height: 40px;
+}
+
+
 .container{
     display: flex;
     align-items: center;
@@ -16,14 +46,7 @@
     border: 1px solid #029132;
     padding: 30px;
 }
-.login > button{
-    background-color: #029132;
-    border-radius: 5px;
-    color: white;
-    padding: 5px;
-    margin-top: 40px;
-    margin-left: 5px;
-}
+
 .login h3{
     text-align: center;
     color:  #029132;

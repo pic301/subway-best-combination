@@ -65,6 +65,7 @@
 .star.s40::before{ width: 80%}
 .star.s45::before{ width: 90%}
 .star.s50::before{ width: 100%}
+
 .btn_detail{
     position: absolute;
     top: 240px;
@@ -79,10 +80,6 @@
     color:  white;
     border-radius: 5px;
 }
-
-
-
-
 
 .btn_right:hover{
     background: url(../images/menus/icon_slider_arr.png) -50px -50px no-repeat;
@@ -112,3 +109,11 @@
     text-indent: -9999px;
 }
 
+
+@media ( max-width: 760px ){
+   
+   .btn_detail, .slider-title, .star{
+        left:0;
+    }
+
+}

@@ -40,6 +40,7 @@ const Board = () => {
   const [cards, setCards] = useState([]);
   const _get = () => {
     db.collection("board")
+      .orderBy("createdAt")
       .get()
       .then(function(querySnapshot) {
         const cards = [];
@@ -51,6 +52,7 @@ const Board = () => {
               title:doc.data().title,
               desc:doc.data().desc,
               combination:doc.data().combination,
+              url:doc.data().url
             }
           )
           
@@ -75,7 +77,7 @@ const Board = () => {
         <Card className={classes.root}>
          <CardContent>
            <Typography className={classes.title}  gutterBottom>
-              꿀조합
+              No.{id+1} 꿀조합
            </Typography>
            <Typography variant="h5" component="h2">
               제목:{card.title}
@@ -87,16 +89,15 @@ const Board = () => {
              레시피:{card.combination.join(",")}
            </Typography>
          </CardContent>
+        <img src={card.url} alt="" width="100px" height="100px"/>
          <CardActions>
            <Button size="small">Learn More</Button>
          </CardActions>
        </Card>
         </Box>
-     
       </Box>
       )
       )}
-      <Picture/>
     </div>
   )
 };

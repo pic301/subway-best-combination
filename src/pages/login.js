@@ -80,9 +80,9 @@ class Login extends Component {
               placeholder="password"
             />
           </form>
-          <button onClick={this._login}>Login</button>
-          <button onClick={this._signUp}>SignUp</button>
-          <button className="btn_google" onClick={this._googleLogin}>GoogleLogin</button>
+          <button className="btn_login"onClick={this._login}>Login</button>
+          <button className="btn_signup"onClick={this._signUp}>SignUp</button>
+          <button className="btn_google" onClick={this._googleLogin}>Google</button>
           {error && <p>{error.message}</p>}
         </div>
       </div>

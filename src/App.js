@@ -43,6 +43,7 @@ class App extends Component {
           loading: false
         });
         localStorage.setItem("user", user.uid);
+        localStorage.setItem("name", user.displayName);
         console.log(this.state.authenticated);
       } else {
         this.setState({
@@ -54,10 +55,9 @@ class App extends Component {
       }
     });
   };
-
   render() {
+    console.log (localStorage.name)
     const { authenticated, loading } = this.state;
-    const { pathname } = this.props.location;
 
     if (loading) {
       return <p>Loading..</p>;
@@ -79,9 +79,9 @@ class App extends Component {
           </Switch>
           <>
             <Switch>
+              <Route exact path={"/login"} component={Login}></Route>
               <Route exact path={"/"} component={Home}></Route>
               {/* <Route path={"/"} render={(props) => <Home {...props} keyProp={someValue} key={randomGen()}/>} /> */}
-              <Route exact path={"/login"} component={Login}></Route>
               <PrivateRoute
                 exact
                 path={"/detail/:sandwichId/:sandwichtitle/:sandwichDesc"}
