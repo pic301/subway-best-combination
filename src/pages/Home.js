@@ -2,7 +2,7 @@
 //    IMPORT DEPENDENCIES
 // =========================
 import React, { Component } from "react";
-import { Link} from "react-router-dom";
+import { Link, withRouter} from "react-router-dom";
 import fire from "../components/firebaseConfig";
 
 
@@ -34,6 +34,10 @@ class Home extends Component {
   };
   _logout = () => {
     fire.auth().signOut()
+    localStorage.removeItem('user')
+    localStorage.removeItem('name')
+  }
+  _logIn = () =>{
     this.props.history.push("/login")
   }
   handleClick = e => {
@@ -61,15 +65,20 @@ class Home extends Component {
 
 
   render() {
+    console.log(localStorage)
+    console.log(this.props.history)
     return (
       <>
         <div className="header">
-            { localStorage.name  && localStorage.name !== "null"
-            ? <p className="header-username"> {`${localStorage.name}님 반갑습니다`}</p>
-            : <p className="header-username"> {`익명님 반갑습니다`}</p>
+            { !localStorage.name ? ""
+              :localStorage.name  && localStorage.name !== "null"
+              ? <p className="header-username"> {`${localStorage.name}님 반갑습니다`}</p>
+              : <p className="header-username"> {`익명님 반갑습니다`}</p>
             }
-              <button className="btn_logout" onClick={this._logout}>로그아웃</button>
-      
+            {localStorage["user"] && localStorage["user"] 
+             ?<button className="btn_logout" onClick={this._logout}>로그아웃</button>
+             :<button className="btn_logout" onClick={this._logIn}>로그인</button>}
+              
         </div>
         <div className="l_wrapper">
           <div className="main">
@@ -131,4 +140,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default withRouter (Home);
