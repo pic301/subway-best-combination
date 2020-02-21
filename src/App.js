@@ -7,7 +7,7 @@ import { withRouter } from "react-router-dom";
 import HomeLayout from "./components/HomeLayout";
 import NavTabs from "./components/Nav";
 import PrivateRoute from "./components/PrivateRoute";
-
+import Footer from './components/Footer'
 // Initialize Firebase
 import fire from "./components/firebaseConfig";
 
@@ -20,6 +20,7 @@ import Login from "./pages/login";
 import Post from "./pages/Post";
 import franchiseInquiry from './pages/franchiseInquiry'
 import Board from "./pages/board";
+
 
 class App extends Component {
   constructor() {
@@ -122,6 +123,16 @@ class App extends Component {
             </Switch>
           </>
           <Redirect from="/*" to="/" />
+          <Switch>
+            <Route path="/login" render={() => null} />
+            <Route
+              render={() => (
+                <>
+                  <Footer />
+                </>
+              )}
+            />
+          </Switch>
         </Router>
       </div>
     );

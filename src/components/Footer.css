@@ -1,0 +1,29 @@
+.footer-container{
+    background-color: #282828;
+    width:100%;
+    height:150px;
+    padding: 22px 55px;
+    
+}
+.footer-content{
+    border-bottom: 0.3px solid #bbbbbb;
+}
+
+.footer-content > p {
+    display: inline-block;
+    color: #bbbbbb;
+    padding: 10px;
+}
+.footer-infomation {
+    padding: 10px;
+    
+ }
+
+.footer-infomation ::after {
+   content:" |";
+   
+}
+.footer-infomation > p {
+    display: inline-block;
+    color: #bbbbbb;
+}
