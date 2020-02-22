@@ -2,9 +2,9 @@
 //    IMPORT DEPENDENCIES
 // =========================
 import React, { Component } from "react";
-import { Link, withRouter} from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import fire from "../components/firebaseConfig";
-
+import GridImages from '../components/GridImages'
 
 import "./Home.css";
 import Slider from "../components/Slider";
@@ -21,29 +21,29 @@ const MainImage = [MainImage1, MainImage2];
 class Home extends Component {
   state = {
     menus: [
-      {name:"메뉴소개",items:[1]}, 
-      {name:"이용방법",items:[2]}, 
-      {name:"새소식",items:[3]}, 
-      {name:"가맹점",items:[4]}, 
-      {name:"써브웨이",items:[5]}, 
-  ],
-   
+      { name: "메뉴소개", items: [1] },
+      { name: "이용방법", items: [2] },
+      { name: "새소식", items: [3] },
+      { name: "가맹점", items: [4] },
+      { name: "써브웨이", items: [5] }
+    ],
+
     anchorEl: null,
     currentImage: 0,
     open: false
   };
   _logout = () => {
-    fire.auth().signOut()
-    localStorage.removeItem('user')
-    localStorage.removeItem('name')
-  }
-  _logIn = () =>{
-    this.props.history.push("/login")
-  }
+    fire.auth().signOut();
+    localStorage.removeItem("user");
+    localStorage.removeItem("name");
+  };
+  _logIn = () => {
+    this.props.history.push("/login");
+  };
   handleClick = e => {
     this.setState({ anchorEl: e.currentTarget });
-  
-    console.log(this.state.anchorEl)
+
+    console.log(this.state.anchorEl);
   };
 
   handleClose = e => {
@@ -51,7 +51,7 @@ class Home extends Component {
     console.log(e.target);
   };
   componentDidMount() {
-    this.interval =   setInterval(
+    this.interval = setInterval(
       () =>
         this.state.currentImage === 0
           ? this.setState({ currentImage: 1 })
@@ -59,26 +59,34 @@ class Home extends Component {
       4000
     );
   }
-  componentWillUnmount(){
-    clearInterval(this.interval)
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
-
   render() {
-    console.log(localStorage)
-    console.log(this.props.history)
+    
     return (
       <>
         <div className="header">
-            { !localStorage.name ? ""
-              :localStorage.name  && localStorage.name !== "null"
-              ? <p className="header-username"> {`${localStorage.name}님 반갑습니다`}</p>
-              : <p className="header-username"> {`익명님 반갑습니다`}</p>
-            }
-            {localStorage["user"] && localStorage["user"] 
-             ?<button className="btn_logout" onClick={this._logout}>로그아웃</button>
-             :<button className="btn_logout" onClick={this._logIn}>로그인</button>}
-              
+          {!localStorage.name ? (
+            ""
+          ) : localStorage.name && localStorage.name !== "null" ? (
+            <p className="header-username">
+              {" "}
+              {`${localStorage.name}님 반갑습니다`}
+            </p>
+          ) : (
+            <p className="header-username"> {`익명님 반갑습니다`}</p>
+          )}
+          {localStorage["user"] && localStorage["user"] ? (
+            <button className="btn_logout" onClick={this._logout}>
+              로그아웃
+            </button>
+          ) : (
+            <button className="btn_logout" onClick={this._logIn}>
+              로그인
+            </button>
+          )}
         </div>
         <div className="l_wrapper">
           <div className="main">
@@ -102,35 +110,45 @@ class Home extends Component {
                   </div>
 
                   <div className="franchise clearfix">
-                    <a href="##">
-                      <strong>가맹신청ㆍ문의</strong>
-                    </a>
+                    <Link to="/franchiseInquiry">
+                      <strong>꿀조합신청ㆍ문의</strong>
+                    </Link>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div className="section">
-            <div className="section-wrapper">
-              <div className="section-title">
+            <div className="section-container">
+              <div className="section-wrapper-right">
                 <h2 className="section-mystore">
                   <span>나만의</span>
                   <span>꿀조합</span>
                 </h2>
-                <h2 className="section-title-left">
-                  Subway's Best Combination Top 8
-                </h2>
-              </div>
-              <img src={combination} alt="" />
+                <img src={combination} alt="" />
 
-              <div className="section-mystore-make">
-                <button className="btn_mystore" >
-                <Link className="btn-link"to={"/combination"}>만들러가기</Link>
-                </button>
+                <div className="section-mystore-make">
+                  <button className="btn_mystore">
+                    <Link className="btn-link" to={"/combination"}>
+                      만들러가기
+                    </Link>
+                  </button>
+                </div>
+              </div>
+              <div className="section-wrapper-left">
+                <div className="section-title">
+                  <h2 className="section-title-left">
+                    Subway's Best Combination Top 8
+                  </h2>
+                </div>
+                <div className="slider_wrapper">
+                  <Slider />
+                </div>
               </div>
             </div>
-            <div className="slider_wrapper">
-              <Slider />
+            {/* gridImage */}
+            <div>
+            <GridImages/>
             </div>
           </div>
         </div>
@@ -139,4 +157,4 @@ class Home extends Component {
   }
 }
 
-export default withRouter (Home);
+export default withRouter(Home);
