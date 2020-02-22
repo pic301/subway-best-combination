@@ -128,6 +128,7 @@ export default function NavTabs() {
         </TabPanel>
         <TabPanel value={value} index={2}>
           <RouterLink className={classes.TabLink} to="/store">매장 찾기</RouterLink>
+          <RouterLink className={classes.TabLink} to="/franchiseInquiry">꿀조합신청ㆍ문의</RouterLink>
         </TabPanel>
         <TabPanel value={value} index={3}>
           <Link className={classes.Link} href="https://youtu.be/ZR1smxzfu90">꿀조합 영상보러가기</Link>

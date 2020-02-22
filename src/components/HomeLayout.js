@@ -14,10 +14,10 @@ const HomeLayout = () => {
 
         <ul className="header-menu ">
           <li>
-            <Link to="/store">매장찾기></Link>
+            <Link to="/store">매장찾기</Link>
           </li>
           <li>
-            <Link to="/franchiseInquiry">가맹신청ㆍ문의</Link>
+            <Link to="/franchiseInquiry">꿀조합신청ㆍ문의</Link>
           </li>
           <li>
             <Link onClick={prepareAlert} to="##">고객센터</Link>
@@ -25,7 +25,7 @@ const HomeLayout = () => {
           <li>
             <a
               className="global_subway"
-              to="http://www.subway.com/en-us/exploreourworld"
+              href="http://www.subway.com/en-us/exploreourworld"
               target="_blank"
               rel="noopener noreferrer"
               title="Global Subway"

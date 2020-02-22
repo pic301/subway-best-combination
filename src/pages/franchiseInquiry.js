@@ -7,7 +7,6 @@ import "./franchiseInquiry.css";
 import { makeStyles } from "@material-ui/styles";
 import TextField from "@material-ui/core/TextField";
 import Checkbox from "@material-ui/core/Checkbox";
-import Input from "@material-ui/core/Input";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -37,7 +36,7 @@ const FranchiseInquiry = () => {
       <div className="franchise-bg">
         <div className="franchise-wrapper">
           <div className="franchise-header">
-            <div className="franchise-title">가맹신청ㆍ문의</div>
+            <div className="franchise-title">꿀조합신청ㆍ문의</div>
             <div className="franchise-privacy">
               <div>
                 <p>개인정보수집 및 이용동의</p>

@@ -7,7 +7,7 @@
 }
 
 .franchise-wrapper{
-    background-color:orange;
+   
     padding: 50px;
     width: 85%;
    
@@ -40,8 +40,12 @@
     
     padding: 50px;
     width: 85%;
-   
-}/* =========================
+}
+.franchise-main span{
+    line-height: 2
+}
+
+/* =========================
         footer
 ========================= */
 .franchise-footer{
