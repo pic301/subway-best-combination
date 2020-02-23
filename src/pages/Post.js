@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./Post.css";
 import Picture from '../components/Picture'
 import { db } from '../components/firebaseConfig'
-import  firebase  from '../components/firebaseConfig'
 
 class Post extends Component {
   state = {
@@ -69,7 +68,7 @@ handlerImageAsUrl=( fireBaseUrl ) => {
               <textarea name="desc"  cols="10" rows="10" value={this.state.desc} onChange={this.onChange} required></textarea>
             </label>
             <img className="upload_image"src={this.state.imageAsUrl ||"https://via.placeholder.com/400x300"} 
-         alt="image tag" width="300px" height="300px"/>
+         alt="imageTag" width="300px" height="300px" />
             <br />
             {this.props.location.combination &&
               this.props.location.combination.map((item, i) => (

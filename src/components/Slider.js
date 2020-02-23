@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import "./Slider.css";
 
 import sandwich_01 from "../images/menus/sandwich_01.jpg";
@@ -10,6 +10,7 @@ import sandwich_05 from "../images/menus/sandwich_05.jpg";
 import sandwich_06 from "../images/menus/sandwich_06.jpg";
 import sandwich_07 from "../images/menus/sandwich_07.jpg";
 import sandwich_08 from "../images/menus/sandwich_08.jpg";
+import GridImages from "./GridImages";
 
 class Slider extends Component {
   state = {
@@ -34,19 +35,18 @@ class Slider extends Component {
       "살라미, 페퍼로니가 입안 한가득! 쏘 핫한 이탈리아의 맛",
       "담백한 치킨 스트립에 달콤짭쪼름한 써브웨이 특제 데리야끼 소스와의 환상적인 만남"
     ],
-  
-    sliderTitle:
-      ["로스트 치킨",
+
+    sliderTitle: [
+      "로스트 치킨",
       "터키베이컨",
       "스테이크&치즈",
       "터키 베이컨 아보카도",
       "치킨 베이컨 랜치",
       "써브웨이 멜트",
       "스파이시 이탈리안",
-      "치킨 데리야끼",],
-      starNumber:[
-        30,40,45,40,45,50,35,30
-      ]
+      "치킨 데리야끼"
+    ],
+    starNumber: [30, 40, 45, 40, 45, 50, 35, 30]
   };
   nextImage = () => {
     const newIndex = this.state.sandwichImagesIndex + 1;
@@ -74,43 +74,61 @@ class Slider extends Component {
     }
 
     console.log(this.state.sandwichImagesIndex);
-    
   };
 
   render() {
-    
     return (
       <div>
         <div className="main-slider">
           <div className="slider-content">
-           
-            <img
-              src={this.state.sandwichImages[[this.state.sandwichImagesIndex]]}
-              alt=""
-            />
-             <div className="slider-title">
-                {this.state.sliderTitle[this.state.sandwichImagesIndex]}
-           
+            <div
+              className="slider-cover-container"
+              style={{ border: "5px solid green" }}
+            >
+              <button className="btn btn_left" onClick={this.prevImage}>
+                prev
+              </button>
+              <img
+                className="slider-cover"
+                src={
+                  this.state.sandwichImages[[this.state.sandwichImagesIndex]]
+                }
+                alt=""
+              />
+              <button className="btn btn_right" onClick={this.nextImage}>
+                next
+              </button>
+              <div
+                className="slider-container"
+                style={{ border: "5px solid red" }}
+              >
+                <div className="slider-title">
+                  {this.state.sliderTitle[this.state.sandwichImagesIndex]}
+                </div>
+                <div
+                  className={`star s${
+                    this.state.starNumber[this.state.sandwichImagesIndex]
+                  }`}
+                ></div>
+                <button className="btn btn_detail">
+                  <Link
+                    className="btn-link"
+                    to={`/detail/${this.state.sandwichImagesIndex}/${
+                      this.state.sliderTitle[this.state.sandwichImagesIndex]
+                    }/${
+                      this.state.sandwichDesc[this.state.sandwichImagesIndex]
+                    }`}
+                  >
+                    상세보기
+                  </Link>
+                </button>
+              </div>
             </div>
-            <div className={`star s${this.state.starNumber[this.state.sandwichImagesIndex]}`}>
-            
-            </div>
-            <button className="btn btn_detail">
-            <Link  className="btn-link"to={`/detail/${this.state.sandwichImagesIndex}/${this.state.sliderTitle[this.state.sandwichImagesIndex]}/${this.state.sandwichDesc[this.state.sandwichImagesIndex]}`}>상세보기</Link>
-            </button>
-            
           </div>
-         
-          <button className="btn btn_left" onClick={this.prevImage}>
-            prev
-          </button>
-          <button className="btn btn_right" onClick={this.nextImage}>
-            next
-          </button>
-          <p>
-            {this.state.sandwichDesc[this.state.sandwichImagesIndex]}
-          </p>
         </div>
+        <p className="slider-desc">
+          {this.state.sandwichDesc[this.state.sandwichImagesIndex]}
+        </p>
       </div>
     );
   }

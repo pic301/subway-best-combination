@@ -1,119 +1,122 @@
-
-
-.main-slider{
-    height: 500px;
-    position: relative;
+.main-slider {
+  display: flex;
+  height: 300px;
 }
-.main-slider img{
-    margin-left: 20px;
-    opacity: 0.7;
-    
-    
+.slider-cover-container {
+  display: flex;
+  align-items: center;
 }
-
-.main-slider img:hover {
-    
-    width:600px;
-    height: 450px;
-    opacity: 1;
-     
+.slider-cover {
+  display: inline-block;
+  margin: 0 10px;
+  width: 60%;
+  height: 100%;
+  opacity: 0.7;
+  margin-left: 20px;
 }
 
-
-
-.main-slider p{
-    position: absolute;
-    bottom:110px;
-    left:120px;
-    font-size: 15px;
-    color: #999999;
-    line-height: 21px;
-    opacity: 1;
-    width: 260px;
-    margin: 0 auto;
-    letter-spacing: -0.04em;
-    
+.slider-cover:hover {
+  width: 60.5%;
+  opacity: 1;
+  transition: transform 0.6s; /* Animation */
+  transform: scale(1.1);
 }
 
-.slider-title{
-    position:absolute;
-    top: 130px;
-    left: 660px;
-    font-size: 2rem;
-    font-weight: bold;
-   
+
+.slider-container {
+  display: inline-block;
+}
+
+.slider-desc {
+  padding:30px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #999999;
+  opacity: 1;
+}
+
+.slider-content {
+  display: block;
+}
+
+.slider-title {
+  font-size: 2rem;
+  font-weight: bold;
 }
 .star::before,
-.star{
-    position: absolute;
-    top: 180px;
-    left: 660px;
-    background-image: url(../images/menus/star-sprite.png); 
-    width: 150px;
-    height: 30px;
-    text-indent: -9999px;
+.star {
+  background-image: url(../images/menus/star-sprite.png);
+  width: 150px;
+  height: 30px;
+  text-indent: -9999px;
 }
-.star::before{
-    content:'';
-    top:0;
-    left:0;
-    display: block;
-    background-position:left bottom;
+.star::before {
+  content: "";
+  top: 0;
+  left: 0;
+  display: block;
+  background-position: left bottom;
 }
-.star.s30::before{ width: 60%}
-.star.s35::before{ width: 70%}
-.star.s40::before{ width: 80%}
-.star.s45::before{ width: 90%}
-.star.s50::before{ width: 100%}
-
-.btn_detail{
-    position: absolute;
-    top: 240px;
-    left: 660px;
-    background-color: green;
-    
+.star.s30::before {
+  width: 60%;
 }
-.btn-link{
-    display: inline-block;
-    padding: 10px 40px;
-    text-decoration: none;
-    color:  white;
-    border-radius: 5px;
+.star.s35::before {
+  width: 70%;
+}
+.star.s40::before {
+  width: 80%;
+}
+.star.s45::before {
+  width: 90%;
+}
+.star.s50::before {
+  width: 100%;
 }
 
-.btn_right:hover{
-    background: url(../images/menus/icon_slider_arr.png) -50px -50px no-repeat;
-    transition: 2
+.btn_detail {
+  
+  background-color: green;
 }
-.btn_right{
-    position: absolute;
-    top: 180px;
-    left: 580px;
-    background: url(../images/menus/icon_slider_arr.png) -50px 0px no-repeat;
-    width: 50px;
-    height: 50px;
-    text-indent: -9999px;
+.btn-link {
+  display: inline-block;
+  padding: 10px 40px 0 40px;
+  text-decoration: none;
+  color: #ffffff;
+  border-radius: 5px;
   
 }
-.btn_left:hover{
-    background: url(../images/menus/icon_slider_arr.png) 0px -50px no-repeat;
+
+.btn_right:hover {
+  background: url(../images/menus/icon_slider_arr.png) -50px -50px no-repeat;
+  transition: 2;
+}
+.btn_right {
+  align-self: center;
+  display: inline-block;
+  background: url(../images/menus/icon_slider_arr.png) -50px 0px no-repeat;
+  width: 50px;
+  height: 50px;
+  text-indent: -9999px;
+}
+.btn_left:hover {
+  background: url(../images/menus/icon_slider_arr.png) 0px -50px no-repeat;
 }
 
-.btn_left{
-    background: url(../images/menus/icon_slider_arr.png) no-repeat;
-    position: absolute;
-    top: 180px;
-    left: -20px;
-    width: 50px;
-    height: 50px;
-    text-indent: -9999px;
+.btn_left {
+  align-self: center;
+  display: inline-block;
+  background: url(../images/menus/icon_slider_arr.png) no-repeat;
+  width: 50px;
+  height: 50px;
+  text-indent: -9999px;
 }
 
-
-@media ( max-width: 760px ){
-   
-   .btn_detail, .slider-title, .star{
-        left:0;
-    }
-
-}
+@media (max-width: 1220px) {
+    .slider-cover-container {
+        display: block;
+      }
+      .main-slider {
+        display: block;
+        height: auto;
+      }
+  }

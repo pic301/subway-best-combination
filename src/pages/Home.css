@@ -98,7 +98,7 @@ input,button,submit { border:none; }
     layout
 ====================== */
 .l_wrapper {
-  background-color:#c4b4ad;
+  background-color:#f6f6f6;
   max-width: 1800px;
   margin: 0 auto;
 }
@@ -204,7 +204,7 @@ input,button,submit { border:none; }
 
 .main-wrapper {
  
-  height: 550px;
+  height: 500px;
 }
 
 .main-cover {
@@ -310,22 +310,21 @@ input,button,submit { border:none; }
     section
 ============================= 
 */
-.section-wrapper{
+.section-container{
   width: 100%;
   margin: 0 auto;
   padding: 0 40px;
+  background: url(../images/bg/bg_content.gif)
 }
 
 .section-title-left{
   
   font-family: 'Baloo Bhaina', cursive;
-  font-size: 45px;
+  font-size: 2rem;
   background: url(../images/common/bul_tit.png)  0 2px no-repeat;
   
 }
-.slider_wrapper{
-  margin-left: 40px;
-}
+
 .section-wrapper {
   position: relative;
 }
@@ -346,15 +345,6 @@ input,button,submit { border:none; }
   color:#009223;
   padding-right: 50px
 }
-.section-mystore-make{
-   position: absolute;
-   top: 260px;
-   right: 390px;
-   font-size: 16px;
-   background-color: #009223;
-   color: white;
-   z-index: 10;
-}
 
 
 .section-title img{
@@ -362,8 +352,14 @@ input,button,submit { border:none; }
   width: 500px;
   height: 500px;
 }
+.section-wrapper-left{
+  display: flex;
+  border:5px solid green;
+}
 
 /* mediaquery */
+
+
 @media (max-width: 1200px){
   .l_wrapper{
     width: auto;
@@ -374,13 +370,26 @@ input,button,submit { border:none; }
     margin-top: 0px;
     font-size: 1.3rem;
 }
-
 }
 @media ( max-width: 768px ){
+  .section-wrapper img{
+    float:none;
+    width: 100%;
+  }
+  .section-wrapper-left{
+    display: inline-block;
+  }
+ 
+.header-link{
+  display: inline-block;
   
-
+}
+.header-menu{
+  float:none;
+  display: block;
+}
 }
 @media( max-width: 480px ){
-
+  
 }
 

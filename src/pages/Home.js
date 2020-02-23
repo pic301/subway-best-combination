@@ -4,7 +4,7 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import fire from "../components/firebaseConfig";
-import GridImages from '../components/GridImages'
+import GridImages from "../components/GridImages";
 
 import "./Home.css";
 import Slider from "../components/Slider";
@@ -12,9 +12,11 @@ import MainImage1 from "../images/common/1.jpg";
 import MainImage2 from "../images/common/2.jpg";
 import combination from "../images/common/combination.png";
 
+
 // =========================
 //     MaterialUI
 // =========================
+
 
 const MainImage = [MainImage1, MainImage2];
 
@@ -56,15 +58,15 @@ class Home extends Component {
         this.state.currentImage === 0
           ? this.setState({ currentImage: 1 })
           : this.setState({ currentImage: 0 }),
-      4000
+      6000
     );
   }
   componentWillUnmount() {
     clearInterval(this.interval);
   }
+  
 
   render() {
-    
     return (
       <>
         <div className="header">
@@ -136,22 +138,24 @@ class Home extends Component {
                 </div>
               </div>
               <div className="section-wrapper-left">
-                <div className="section-title">
-                  <h2 className="section-title-left">
-                    Subway's Best Combination Top 8
-                  </h2>
+                <div style={{border:"5px solid red",display:"inline-block" }}>
+                  <div className="section-title">
+                    <h2 className="section-title-left">
+                      Subway's Best Combination Top 8
+                    </h2>
+                  </div>
+                  <div className="slider_wrapper">
+                    <Slider />
+                  </div>
                 </div>
-                <div className="slider_wrapper">
-                  <Slider />
-                </div>
+               <div style={{width: "60%"}}>
+               <GridImages/>
+               </div>
               </div>
-            </div>
-            {/* gridImage */}
-            <div>
-            <GridImages/>
             </div>
           </div>
         </div>
+             
       </>
     );
   }
