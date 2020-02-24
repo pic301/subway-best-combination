@@ -6,7 +6,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Paper from '@material-ui/core/Paper';
-import Fab from '@material-ui/core/Fab';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
@@ -14,34 +13,41 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import Avatar from '@material-ui/core/Avatar';
 import MenuIcon from '@material-ui/icons/Menu';
-import AddIcon from '@material-ui/icons/Add';
 import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
-
+import HelpIcon from '@material-ui/icons/Help';
 
 const messages = [
   {
     id: 1,
     primary: "꿀조합이 무엇인가요?",
     secondary:
-      "I'll be in the neighbourhood this week. Let's grab a bite to eat",
+      "서브웨이 샌드위치를 선택할때 여러사람들에게 맛을 인정받은 일종의 가이드라인 입니다.",
     person: "/static/images/avatar/5.jpg"
   },
   {
     id: 2,
     primary: '꿀조합은 어떻게 조합하나요?',
-    secondary: `Do you have a suggestion for a good present for John on his work
-      anniversary. I am really confused & would love your thoughts on it.`,
+    secondary: `나만의 꿀조합 만들기 버튼을 눌러 시작해보세요.`,
     person: '/static/images/avatar/1.jpg',
   },
- 
+  {
+    id: 3,
+    primary: "홈페이지를 왜 만들게 됐나요?",
+    secondary:
+      "서브웨이 메뉴를 선택할때 어려움을 겪거나 편하게 먹을 수 있는 정보를 제공해 주고 싶었습니다.",
+    person: "/static/images/avatar/5.jpg"
+  },
 ];
 
 const useStyles = makeStyles(theme => ({
   text: {
     textAlign: "center",
-    padding: 20
-    
+    color:"#282828",
+    padding: 20,
+    backgroundColor: theme.palette.primary.secondary,
+    letterSpacing:0.9,
+    fontSize: "1.1rem"
   },
   paper: {
     paddingBottom: 50,
@@ -51,7 +57,7 @@ const useStyles = makeStyles(theme => ({
     height: 602,
   },
   subheader: {
-    backgroundColor: theme.palette.background.paper,
+    
   },
   appBar: {
     position:"absolute",
@@ -73,6 +79,13 @@ const useStyles = makeStyles(theme => ({
     right: 0,
     margin: '0 auto',
   },
+  help:{
+    position:"absolute",
+    top:15,
+    left:65,
+    fontSize: "2rem",
+    color: theme.palette.primary.main,
+  }
 }));
 
 
@@ -87,6 +100,7 @@ const Bar = () => {
             <CssBaseline/>
           <Paper square className={classes.paper}>
             <Typography className={classes.text} variant="h5" gutterBottom>
+            <HelpIcon className={classes.help}/>
                 자주묻는질문
             </Typography>
             <List className={classes.list}>
@@ -108,9 +122,6 @@ const Bar = () => {
               <IconButton edge="start" color="inherit" aria-label="open drawer">
             <MenuIcon />
           </IconButton>
-          <Fab color="secondary" aria-label="add" className={classes.fabButton}>
-            <AddIcon />
-          </Fab>
           <div className={classes.grow} />
           <IconButton color="inherit">
             <SearchIcon />
