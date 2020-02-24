@@ -215,17 +215,13 @@ input,button,submit { border:none; }
    quick menu
 ============================= 
 */
-.quick_link {
-  position: relative;
-  
-}
+
 .quick-content {
-   position: absolute;
-   right: 0;
-   width:55%;
+  display: flex;
+  justify-content: flex-end;
+   width:100%;
    margin-top: -20px;
-   font-size: 1.3rem;
-   
+   font-size: 1.2rem;
 }
 /* .store {
 } */
@@ -274,7 +270,18 @@ input,button,submit { border:none; }
   letter-spacing: 0.02rem;
   color: whitesmoke;
  
-}
+} 
+/* .youtube a :hover{
+    border: 5px solid orange;
+    background-color: #ffffff;
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    top:0;
+    left:0;
+    right: 0;
+    bottom:0;
+} */
 
 .franchise a>strong::before{
   position: absolute;
@@ -364,12 +371,15 @@ input,button,submit { border:none; }
   .l_wrapper{
     width: auto;
   }
-  .quick-content {
-    position: absolute;
-    left: 0;
-    margin-top: 0px;
-    font-size: 1.3rem;
+
 }
+@media (max-width: 900px){
+  .quick-content {
+    display: inline-block;
+    width:50%;
+    margin-top: 20px;
+  } 
+
 }
 @media ( max-width: 768px ){
   .section-wrapper img{

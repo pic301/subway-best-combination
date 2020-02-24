@@ -11,6 +11,7 @@ import Slider from "../components/Slider";
 import MainImage1 from "../images/common/1.jpg";
 import MainImage2 from "../images/common/2.jpg";
 import combination from "../images/common/combination.png";
+import Youtube from "../components/Youtube";
 
 
 // =========================
@@ -32,7 +33,8 @@ class Home extends Component {
 
     anchorEl: null,
     currentImage: 0,
-    open: false
+    open: false,
+    hover: false
   };
   _logout = () => {
     fire.auth().signOut();
@@ -64,7 +66,15 @@ class Home extends Component {
   componentWillUnmount() {
     clearInterval(this.interval);
   }
-  
+  _onMouseEnter = () =>{
+    
+    this.setState({hover:true})
+    
+  }
+  _onMouseLeave = () => {
+   
+    this.setState({hover: false});
+  }
 
   render() {
     return (
@@ -98,18 +108,28 @@ class Home extends Component {
                 src={MainImage[this.state.currentImage]}
                 alt=""
               />
+              <div>
               <div className="quick_link">
-                <div className="quick-content clearfix">
+                
+                <div className="quick-content clearfix" style={{border:"3px solid orange"}}>
                   <div className="store">
                     <Link to="/store">
                       <strong>매장찾기</strong>
                     </Link>
                   </div>
-                  <div className="youtube">
-                    <a href="https://youtu.be/ZR1smxzfu90">
+                  <div className="youtube" onMouseEnter={this._onMouseEnter} onMouseLeave={this._onMouseLeave}>
+                  {this.state.hover === true ?     
+                  <a href="https://youtu.be/ZR1smxzfu90">
+                  <strong>꿀조합 영상 보러가기</strong>
+                  <Youtube/>
+                </a>
+                
+                        
+                     : <a href="https://youtu.be/ZR1smxzfu90">
                       <strong>꿀조합 영상 보러가기</strong>
-                    </a>
+                    </a>}
                   </div>
+                    
 
                   <div className="franchise clearfix">
                     <Link to="/franchiseInquiry">
@@ -117,6 +137,7 @@ class Home extends Component {
                     </Link>
                   </div>
                 </div>
+              </div>
               </div>
             </div>
           </div>
@@ -128,7 +149,6 @@ class Home extends Component {
                   <span>꿀조합</span>
                 </h2>
                 <img src={combination} alt="" />
-
                 <div className="section-mystore-make">
                   <button className="btn_mystore">
                     <Link className="btn-link" to={"/combination"}>
