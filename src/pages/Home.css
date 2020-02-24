@@ -117,9 +117,12 @@ input,button,submit { border:none; }
 
 
 .btn_mystore{
+  margin: 5px;
+  padding: 10px 40px ;
   background-color: green;
   display: inline-block;
   text-decoration: none;
+  border-radius: 5px;
 }
 /* Component */
 .header{
@@ -352,7 +355,14 @@ input,button,submit { border:none; }
   color:#009223;
   padding-right: 50px
 }
-
+.section-mystore-make{
+   display: flex;
+   justify-content: flex-end;
+}
+.section-question{
+   display: flex;
+   align-items: flex-start;
+}
 
 .section-title img{
   float: right;
