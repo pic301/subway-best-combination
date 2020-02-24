@@ -74,16 +74,11 @@
 }
 
 .btn_detail {
-  
-  background-color: green;
-}
-.btn-link {
-  display: inline-block;
-  padding: 10px 40px 0 40px;
-  text-decoration: none;
-  color: #ffffff;
-  border-radius: 5px;
-  
+    background-color: green;
+    border-radius: 5px;
+    padding: 10px 40px ;
+    color: #ffffff;
+    cursor: pointer;
 }
 
 .btn_right:hover {

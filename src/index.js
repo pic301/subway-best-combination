@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from "./App";
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
+import './index.css'
 
 const theme = createMuiTheme({
   palette: {

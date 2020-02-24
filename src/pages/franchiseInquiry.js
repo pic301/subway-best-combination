@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./franchiseInquiry.css";
-
 // =============================
 //      material-ui
 // =============================
@@ -13,6 +12,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import PriorityHighIcon from "@material-ui/icons/PriorityHigh";
 import Button from '@material-ui/core/Button'
+
 
 const useStyles = makeStyles(() => ({
   root: {},

@@ -12,7 +12,7 @@ const HomeLayout = () => {
           <Link className="header-link" to="/">subway</Link>
         </div>
 
-        <ul className="header-menu ">
+        <ul className="header-menu">
           <li>
             <Link to="/store">매장찾기</Link>
           </li>

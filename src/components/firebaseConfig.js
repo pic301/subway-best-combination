@@ -21,5 +21,4 @@ export const provider = new firebase.auth.GoogleAuthProvider()
 export const db = firebase.firestore()
 export const storage = firebase.storage() //이미지하고 동영상을 담고있는 저장소
 
-
 export default fire;
