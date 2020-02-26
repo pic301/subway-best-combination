@@ -15,9 +15,14 @@
 .franchise-title{
     text-align: center;
     padding: 60px 0 0 ;
-    font-size: 40px;
+    font-size: 2.5rem;
+    font-weight: bold;
     height: 195px;
-    border: 1px solid red;
+    color:#029132;
+    
+}
+.franchise-title span{
+    color:#ffc20e
 }
 .franchise-privacy{
    display: flex;
@@ -25,13 +30,20 @@
    justify-content:space-around;
 }
 
+.prevacy-title{
+    font-size: 1.2rem;
+}
+
 .franchise-privacy textarea{
     display:block;
     width: 500px;
     height: 200px;
+    margin: 20px 40px 0 0;
+    padding: 20px
 }
-.franchise-privacy>p{
+.franchise-privacy p{
     display:block;
+   
 }
 /* =========================
         main
@@ -71,7 +83,7 @@
 @media(max-width:768px ){
   
 }
-@media(max-width:892px ){
+@media(max-width:1220px ){
     .franchise-privacy{
         display: block;
     }
@@ -81,4 +93,7 @@
         height: 200px;
     }
    
+}
+@media(max-width:768px ){
+  
 }

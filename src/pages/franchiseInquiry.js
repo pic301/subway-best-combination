@@ -1,21 +1,27 @@
-import React, { useState } from "react";
-import "./franchiseInquiry.css";
+import Button from '@material-ui/core/Button';
+import Checkbox from "@material-ui/core/Checkbox";
+import FormControl from "@material-ui/core/FormControl";
+import TextareaAutosize from "@material-ui/core/TextareaAutosize";
+import TextField from "@material-ui/core/TextField";
+import PriorityHighIcon from "@material-ui/icons/PriorityHigh";
 // =============================
 //      material-ui
 // =============================
 import { makeStyles } from "@material-ui/styles";
-import TextField from "@material-ui/core/TextField";
-import Checkbox from "@material-ui/core/Checkbox";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
-import MenuItem from "@material-ui/core/MenuItem";
-import TextareaAutosize from "@material-ui/core/TextareaAutosize";
-import PriorityHighIcon from "@material-ui/icons/PriorityHigh";
-import Button from '@material-ui/core/Button'
+import React, { useState } from "react";
+import "./franchiseInquiry.css";
+import DaumPostcode from '../components/DaumPost';
+import {withRouter} from 'react-router-dom'
 
 
 const useStyles = makeStyles(() => ({
-  root: {},
+  root: {
+    "& span": {
+      margin: 10
+    }
+   
+     
+  },
   margin:{
     marginLeft:"10px"
   }
@@ -23,23 +29,20 @@ const useStyles = makeStyles(() => ({
 }));
 const FranchiseInquiry = () => {
   const [checked, setChecked] = useState(true);
-  const [selected, setSelected] = useState("");
   const classes = useStyles();
   const handleChange = e => {
     setChecked(e.target.checked);
   };
-  const handleSelectChange = e => {
-    setSelected(e.target.value);
-  };
+  
   return (
     <div className="franchise">
       <div className="franchise-bg">
         <div className="franchise-wrapper">
           <div className="franchise-header">
-            <div className="franchise-title">꿀조합신청ㆍ문의</div>
+            <div className="franchise-title"><span>꿀조합</span>신청ㆍ문의</div>
             <div className="franchise-privacy">
               <div>
-                <p>개인정보수집 및 이용동의</p>
+                <p className="prevacy-title">개인정보수집 및 이용동의</p>
                 <textarea
                   className="franchise-privacy-left"
                   id=""
@@ -64,7 +67,7 @@ const FranchiseInquiry = () => {
                 </p>
               </div>
               <div>
-                <p>개인정보 위탁동의</p>
+                <p className="prevacy-title">개인정보 위탁동의</p>
                 <textarea
                   className="franchise-privacy-right"
                   id=""
@@ -92,8 +95,7 @@ const FranchiseInquiry = () => {
           <div className="franchise-main">
             <FormControl className={classes.root} noValidate autoComplete="off">
               <div>
-                {" "}
-                <span>이름:</span>{" "}
+                <span>이름:</span>
                 <TextField id="text_name" placeholder="이름을 입력해주세요" />
               </div>
               <div>
@@ -104,40 +106,18 @@ const FranchiseInquiry = () => {
                 />
               </div>
               <div>
-                <span>이메일:</span>{" "}
-                <TextField id="text_name" placeholder="이름을 입력해주세요" />{" "}
+                <span>이메일:</span>
+                <TextField id="text_name" placeholder="이름을 입력해주세요" />
               </div>
-              <span>지역:</span>{" "}
-              <Select
-                labelId="demo-simple-select-outlined-label"
-                id="demo-simple-select-outlined"
-                onChange={handleSelectChange}
-              >
-                <MenuItem value="">
-                  <em>시/도</em>
-                </MenuItem>
-                <MenuItem value={10}>경기도 </MenuItem>
-                <MenuItem value={20}>인천광역시</MenuItem>
-                <MenuItem value={30}>대전광역시</MenuItem>
-                <MenuItem value={40}>세종특별자치시</MenuItem>
-                <MenuItem value={50}>충청남도</MenuItem>
-                <MenuItem value={60}>경상남도</MenuItem>
-                <MenuItem value={70}>울산광역시</MenuItem>
-                <MenuItem value={80}>부산광역시</MenuItem>
-                <MenuItem value={90}>서울특별시</MenuItem>
-                <MenuItem value={100}>전라북도</MenuItem>
-                <MenuItem value={110}>충청북도</MenuItem>
-                <MenuItem value={120}>광주광역시</MenuItem>
-                <MenuItem value={130}>전라남도</MenuItem>
-                <MenuItem value={140}>경상북도</MenuItem>
-                <MenuItem value={150}>강원도</MenuItem>
-              </Select>
-              <div>
-                <span>제목:</span>{" "}
-                <TextField id="text_name" placeholder="제목을 입력해주세요" />{" "}
+
+             <DaumPostcode/>
+
+              <div >
+                <span>제목:</span>
+                <TextField id="text_name" placeholder="제목을 입력해주세요" />
               </div>
-              <div>
-                <span>내용:</span>{" "}
+              <div style={{display:"flex"}}>
+                <span>내용:</span>
                 <TextareaAutosize
                   rowsMin={5}
                   aria-label="maximum height"
@@ -147,10 +127,8 @@ const FranchiseInquiry = () => {
               </div>
               <input type="file" />
               <div>
-                <span>
                   신청·문의사항에 대한 답변은 메일로 발송됩니다.
                   동의하시겠습니까?
-                </span>
                 <Checkbox
                   defaultChecked
                   value="third"
@@ -182,7 +160,7 @@ const FranchiseInquiry = () => {
         </div>
       </div>
     </div>
+  
   );
-};
-
-export default FranchiseInquiry;
+}
+export default withRouter(FranchiseInquiry);
