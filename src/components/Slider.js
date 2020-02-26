@@ -10,7 +10,7 @@ import sandwich_05 from "../images/menus/sandwich_05.jpg";
 import sandwich_06 from "../images/menus/sandwich_06.jpg";
 import sandwich_07 from "../images/menus/sandwich_07.jpg";
 import sandwich_08 from "../images/menus/sandwich_08.jpg";
-import GridImages from "./GridImages";
+
 
 class Slider extends Component {
   state = {
@@ -25,27 +25,6 @@ class Slider extends Component {
       sandwich_08
     ],
     sandwichImagesIndex: 0,
-    sandwichDesc: [
-      "오븐에 구워 담백한 저칼로리 닭가슴살의 건강한 풍미",
-      "담백한 터키와 바삭한 베이컨의 기분 좋은 만남",
-      "육즙이 쫙~풍부한 비프 스테이크의 풍미가 입안 한가득",
-      "담백한 터키와 바삭한 베이컨 환상조합에 부드러운 아보카도는 신의 한수",
-      "바삭한 베이컨과 담백한 치킨의 이중주",
-      "자신있게 추천하는 터키, 햄, 베이컨의 완벽한 맛의 밸런스",
-      "살라미, 페퍼로니가 입안 한가득! 쏘 핫한 이탈리아의 맛",
-      "담백한 치킨 스트립에 달콤짭쪼름한 써브웨이 특제 데리야끼 소스와의 환상적인 만남"
-    ],
-
-    sliderTitle: [
-      "로스트 치킨",
-      "터키베이컨",
-      "스테이크&치즈",
-      "터키 베이컨 아보카도",
-      "치킨 베이컨 랜치",
-      "써브웨이 멜트",
-      "스파이시 이탈리안",
-      "치킨 데리야끼"
-    ],
     starNumber: [30, 40, 45, 40, 45, 50, 35, 30]
   };
   nextImage = () => {
@@ -103,31 +82,31 @@ class Slider extends Component {
                 style={{ border: "5px solid red" }}
               >
                 <div className="slider-title">
-                  {this.state.sliderTitle[this.state.sandwichImagesIndex]}
+                  {this.props.sliderTitle[this.state.sandwichImagesIndex]}
                 </div>
                 <div
                   className={`star s${
                     this.state.starNumber[this.state.sandwichImagesIndex]
                   }`}
                 ></div>
-                <button className="btn btn_detail">
                   <Link
                     className="btn-link"
                     to={`/detail/${this.state.sandwichImagesIndex}/${
-                      this.state.sliderTitle[this.state.sandwichImagesIndex]
+                      this.props.sliderTitle[this.state.sandwichImagesIndex]
                     }/${
-                      this.state.sandwichDesc[this.state.sandwichImagesIndex]
+                      this.props.sandwichDesc[this.state.sandwichImagesIndex]
                     }`}
                   >
+                <button className="btn btn_detail">
                     상세보기
-                  </Link>
                 </button>
+                  </Link>
               </div>
             </div>
           </div>
         </div>
         <p className="slider-desc">
-          {this.state.sandwichDesc[this.state.sandwichImagesIndex]}
+          {this.props.sandwichDesc[this.state.sandwichImagesIndex]}
         </p>
       </div>
     );

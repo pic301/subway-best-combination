@@ -1,4 +1,5 @@
 import React,{useEffect,useState} from 'react';
+import { Link } from "react-router-dom"
 import { storage } from './firebaseConfig'
 // ============================================
 //         material-ui
@@ -56,12 +57,23 @@ const GridImages = props => {
   }, []);
   console.log(urls.urls);
 
+
+
   return (
     <div className={classes.root} >
       <Grid container spacing={1} className={classes.container}>
-          {urls.urls && urls.urls.map((url) => 
+          {urls.urls && urls.urls.map((url,i) => 
             <Grid item lg={4} md={6} sm={6} className={classes.image}>
-              <img key={url.url}  src={url.url} alt="" />
+                <Link
+                    to={`/detail/${i}/${
+                      props.sliderTitle[i]
+                    }/${
+                      props.sandwichDesc[i]
+                    }`}
+                  >
+                  <img key={url.url} src={url.url} alt="" />
+                   <div style={{textAlign:"center"}}>{props.sliderTitle[i]}</div>
+                </Link>
             </Grid>
           )
         }

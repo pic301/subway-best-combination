@@ -52,6 +52,7 @@ import salt from "../images/recipes/salt.jpg";
 import pepper from "../images/recipes/pepper.jpg";
 import ranchDressing from "../images/recipes/ranchDressing.jpg";
 import sweetOnion from "../images/recipes/sweetOnion.jpg";
+import JustBaked  from '../images/common/JustBaked.png'
 
 class Combination extends Component {
   state = {
@@ -292,7 +293,7 @@ class Combination extends Component {
                 </li>
               )}
             </ul>
-            <div className="step-content">
+            <div className="step-content" style={{border:"3px solid blue"}}>
               <img src={this.state.images[this.state.step]} alt="" />
 
               {/* 빵 두개이상 선택시 error */}
@@ -316,7 +317,7 @@ class Combination extends Component {
                   {item}
                 </button>
               ))}
-              <div className="step-card-left">
+              <div className="step-card-left" style={{border:"3px solid red"}}>
                 <div className="card-recipe">
                   {this.state.combination.map((item, index) => (
                     <div className="card-recipe-item">
@@ -349,19 +350,19 @@ class Combination extends Component {
             <button className="btn btn-next" onClick={this.nextStep}>
               다음
             </button>
+            <div className="bread bread-up"></div>
           </div>
           {this.state.combinationImages.map((item, index) => (
-            <>
-              <img className="step-cover" src={item} alt="" />
-            </>
+              <img className="step-cover" src={item} alt=""/>
           ))}
         </div>
+        <div className="bread bread-down"></div>
+    
        <div className="post-container">
           <Link to={{
             pathname:'/post',
             combination:this.state.combination
-          }}>나만의 꿀조합 게시글 작성하러 가기</Link>
-         
+          }}>게시글 작성하러 가기</Link>
        </div>
       </div>
     );
