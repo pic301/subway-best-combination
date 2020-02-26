@@ -62,7 +62,6 @@ class Slider extends Component {
           <div className="slider-content">
             <div
               className="slider-cover-container"
-              style={{ border: "5px solid green" }}
             >
               <button className="btn btn_left" onClick={this.prevImage}>
                 prev
@@ -79,7 +78,6 @@ class Slider extends Component {
               </button>
               <div
                 className="slider-container"
-                style={{ border: "5px solid red" }}
               >
                 <div className="slider-title">
                   {this.props.sliderTitle[this.state.sandwichImagesIndex]}

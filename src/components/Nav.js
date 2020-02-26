@@ -28,10 +28,12 @@ const AntTabs = withStyles({
   root: {
     borderBottom: "1px solid #e8e8e8",
     margin: "0 50px",
+    width:"650px"
   },
   indicator: {
     backgroundColor: " #029132"
   }
+
 })(Tabs);
 
 const AntTab = withStyles(theme => ({
@@ -51,9 +53,13 @@ const AntTab = withStyles(theme => ({
     },
     "&:focus": {
       color: "#ffc20e"
+    },
+    '@media (max-width: 978px)': {
+      minWidth: 40,
+      marginRight:0
     }
   },
-  selected: {}
+
 }))(props => <Tab disableRipple {...props} />);
 
 const useStyles = makeStyles(theme => ({
@@ -74,8 +80,11 @@ const useStyles = makeStyles(theme => ({
     "&:visited":{
       color: "#666666" ,
       textDecoration: "none"
-    }
-  }
+    },
+  },
+
+
+  
 }));
 
 export default function NavTabs() {
@@ -88,9 +97,9 @@ export default function NavTabs() {
 
   return (
     <div className={classes.root}>
-      <div className={classes.demo1}>
-        <AntTabs  value={value} onChange={handleChange} aria-label="ant example">
-          <AntTab label="꿀조합 메뉴" />
+      <div >
+       <AntTabs className={classes.demo1}  value={value} onChange={handleChange} aria-label="ant example">
+          <AntTab  label="꿀조합 메뉴" />
           <AntTab label="꿀조합 이용하기" />
           <AntTab label="써브웨이" />
           <AntTab label="새소식" />

@@ -129,7 +129,8 @@ input,button,submit { border:none; }
 }
 
 .btn_bar{
-    position: relative;       
+    position: relative;     
+    margin-top: -20px;  
 }
 /* Component */
 .header{
@@ -380,7 +381,7 @@ input,button,submit { border:none; }
 }
 .section-wrapper-left{
   display: flex;
-  border:5px solid green;
+  border:3px solid green;
 }
 
 /* mediaquery */
@@ -392,7 +393,7 @@ input,button,submit { border:none; }
   }
 
 }
-@media (max-width: 900px){
+@media (max-width: 1002px){
   .quick-content {
     display: inline-block;
     width:50%;
@@ -428,6 +429,7 @@ input,button,submit { border:none; }
 @media( max-width: 480px ){
   .header-link{
     position: static;
+    
   }
 }
 

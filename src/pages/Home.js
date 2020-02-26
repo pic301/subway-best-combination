@@ -201,7 +201,6 @@ class Home extends Component {
               </div>
               <div className="section-wrapper-left">
                 <div
-                  style={{ border: "5px solid red", display: "inline-block" }}
                 >
                   <div className="section-title">
                     <h2 className="section-title-left">
