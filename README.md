@@ -37,3 +37,9 @@ login 페이지에서는 Nav를 없애고싶었다
 
 <img width="1148" alt="스크린샷 2020-02-19 오전 2 41 27" src="https://user-images.githubusercontent.com/55937548/74762507-56675600-52c1-11ea-8ae5-034e29a65462.png">
 해결
+
+![스크린샷 2020-02-26 오전 4 43 27](https://user-images.githubusercontent.com/55937548/75281456-af4f6500-5852-11ea-9c2a-24b2d6785f15.png)
+
+정의되지 않은 함수를 사용해버렸다
+<img width="331" alt="스크린샷 2020-02-26 오전 4 46 43" src="https://user-images.githubusercontent.com/55937548/75281667-02c1b300-5853-11ea-95dd-b59f70049985.png">
+함수를 넣어 해결했다

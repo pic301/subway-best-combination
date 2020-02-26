@@ -8,6 +8,7 @@ import HomeLayout from "./components/HomeLayout";
 import NavTabs from "./components/Nav";
 import PrivateRoute from "./components/PrivateRoute";
 import Footer from './components/Footer'
+
 // Initialize Firebase
 import fire from "./components/firebaseConfig";
 
@@ -18,7 +19,7 @@ import Combination from "./pages/Combination";
 import store from "./pages/store";
 import Login from "./pages/login";
 import Post from "./pages/Post";
-import franchiseInquiry from './pages/franchiseInquiry'
+import FranchiseInquiry from './pages/franchiseInquiry'
 import Board from "./pages/board";
 
 
@@ -64,7 +65,6 @@ class App extends Component {
     if (loading) {
       return <p>Loading..</p>;
     }
-
     console.log(this.state.user)
     return (
       <div>
@@ -117,7 +117,7 @@ class App extends Component {
                  <PrivateRoute
                 exact
                 path={"/franchiseInquiry"}
-                component={franchiseInquiry}
+                component={() =>  <FranchiseInquiry/>}
                 authenticated={authenticated}
               ></PrivateRoute>
             </Switch>
