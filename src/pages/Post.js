@@ -67,15 +67,19 @@ handlerImageAsUrl=( fireBaseUrl ) => {
               꿀조합 <span>설명:</span>
               <textarea name="desc"  cols="10" rows="10" value={this.state.desc} onChange={this.onChange} required></textarea>
             </label>
-            <img className="upload_image"src={this.state.imageAsUrl ||"https://via.placeholder.com/400x300"} 
+       <div className="post-make-container">
+       <img className="upload_image"src={this.state.imageAsUrl ||"https://via.placeholder.com/400x300"} 
          alt="imageTag" width="300px" height="300px" />
             <br />
-            {this.props.location.combination &&
+         <div className="post-combination-container">
+              {this.props.location.combination &&
               this.props.location.combination.map((item, i) => (
                 <div key={i} className="post-combination" >
                   {` ${i + 1}.${item}`}
-                </div>
+         </div>
               ))}
+         </div>
+       </div>
             <div className="post-button">
             <button >게시판에 올리기</button>
             </div>

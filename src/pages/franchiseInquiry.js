@@ -103,38 +103,16 @@ const FranchiseInquiry = () => {
                   placeholder="연락처를 입력해주세요"
                 />
               </div>
-              <div>
-                <span>이메일:</span>{" "}
-                <TextField id="text_name" placeholder="이름을 입력해주세요" />{" "}
+              <div className={classes.content}>
+                <span>이메일:</span>
+                <TextField id="text_email" placeholder="이름을 입력해주세요" />
               </div>
-              <span>지역:</span>{" "}
-              <Select
-                labelId="demo-simple-select-outlined-label"
-                id="demo-simple-select-outlined"
-                onChange={handleSelectChange}
-              >
-                <MenuItem value="">
-                  <em>시/도</em>
-                </MenuItem>
-                <MenuItem value={10}>경기도 </MenuItem>
-                <MenuItem value={20}>인천광역시</MenuItem>
-                <MenuItem value={30}>대전광역시</MenuItem>
-                <MenuItem value={40}>세종특별자치시</MenuItem>
-                <MenuItem value={50}>충청남도</MenuItem>
-                <MenuItem value={60}>경상남도</MenuItem>
-                <MenuItem value={70}>울산광역시</MenuItem>
-                <MenuItem value={80}>부산광역시</MenuItem>
-                <MenuItem value={90}>서울특별시</MenuItem>
-                <MenuItem value={100}>전라북도</MenuItem>
-                <MenuItem value={110}>충청북도</MenuItem>
-                <MenuItem value={120}>광주광역시</MenuItem>
-                <MenuItem value={130}>전라남도</MenuItem>
-                <MenuItem value={140}>경상북도</MenuItem>
-                <MenuItem value={150}>강원도</MenuItem>
-              </Select>
-              <div>
-                <span>제목:</span>{" "}
-                <TextField id="text_name" placeholder="제목을 입력해주세요" />{" "}
+
+             <DaumPostcode/>
+
+              <div className={classes.content}>
+                <span>제목:</span>
+                <TextField id="text_title" placeholder="제목을 입력해주세요" />
               </div>
               <div>
                 <span>내용:</span>{" "}

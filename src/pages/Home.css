@@ -127,6 +127,10 @@ input,button,submit { border:none; }
   color: #ffffff;
   cursor: pointer;
 }
+
+.btn_bar{
+    position: relative;       
+}
 /* Component */
 .header{
   display:flex;
