@@ -24,7 +24,24 @@ const useStyles = makeStyles(() => ({
   },
   margin:{
     marginLeft:"10px"
-  }
+  },
+  content:{
+    margin:10,
+   
+  },
+  textContainer:{
+    display:"flex",
+    justifyContent:"flex-start",
+    width:"700px",
+    margin:10,
+    "& textarea": {
+      width:"500%",
+      padding: 10,
+  
+    }
+   
+  },   
+
 
 }));
 const FranchiseInquiry = () => {
@@ -94,39 +111,51 @@ const FranchiseInquiry = () => {
           </div>
           <div className="franchise-main">
             <FormControl className={classes.root} noValidate autoComplete="off">
-              <div>
+              <div className={classes.content}>
                 <span>이름:</span>
                 <TextField id="text_name" placeholder="이름을 입력해주세요" />
               </div>
-              <div>
+              <div className={classes.content}>
                 <span>연락처:</span>
                 <TextField
                   id="text_phone"
                   placeholder="연락처를 입력해주세요"
                 />
               </div>
-              <div>
+              <div className={classes.content}>
                 <span>이메일:</span>
                 <TextField id="text_name" placeholder="이름을 입력해주세요" />
               </div>
 
              <DaumPostcode/>
 
-              <div >
+              <div className={classes.content}>
                 <span>제목:</span>
                 <TextField id="text_name" placeholder="제목을 입력해주세요" />
               </div>
-              <div style={{display:"flex"}}>
-                <span>내용:</span>
-                <TextareaAutosize
-                  rowsMin={5}
+              <div className={classes.textContainer}>
+                <span >내용:</span>
+                <textarea
+                  rows={4}
                   aria-label="maximum height"
                   placeholder="내용을 입력해주세요"
-                  defaultValue=""
+                  style={{width:"500px"}}
                 />
               </div>
-              <input type="file" />
-              <div>
+              <div className={classes.content}>
+              <Button
+                variant="contained"
+                component="label"
+                size="small"
+              >
+              파일추가
+              <input
+                type="file"
+                style={{ display: "none" }}
+              />
+            </Button>
+              </div>
+              <div className={classes.content}>
                   신청·문의사항에 대한 답변은 메일로 발송됩니다.
                   동의하시겠습니까?
                 <Checkbox
@@ -138,8 +167,8 @@ const FranchiseInquiry = () => {
               </div>
             </FormControl>
           </div>
-          <div className="franchise-footer">
-            <div className="franchise-footer-container">
+          <div className="franchise-footer" >
+            <div className="franchise-footer-container" >
                 <div><PriorityHighIcon color="primary" fontSize="large"/></div>
                 <div>
                 · 문의가 집중되거나 주말의 경우 답변이 지연될 수 있습니다. 최대한
@@ -148,7 +177,7 @@ const FranchiseInquiry = () => {
                 경우, 답변 진행이 어려울 수 있습니다.
                 </div>
             </div>
-            <div className="franchise-button-container">
+            <div className="franchise-button-container" >
             <Button variant="contained"  className={classes.margin}>
               취소
             </Button>

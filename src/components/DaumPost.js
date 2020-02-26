@@ -51,13 +51,9 @@ const DaumPostcode =(props) => {
 
   useEffect(() => {
     const scriptId = 'daum_postcode_script';
-    const script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js'
-      script.onload = () => initiate(postcodeEl.current);
-      script.id = scriptId;
-      document.body.appendChild(script);
- 
+    
+      initiate(postcodeEl.current);
+    
   }, [initiate]);
   return (
     <div

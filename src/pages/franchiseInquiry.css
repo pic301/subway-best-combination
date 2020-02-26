@@ -1,3 +1,4 @@
+
 .franchise-bg{
     display:flex;
     justify-content: center;
@@ -32,6 +33,7 @@
 
 .prevacy-title{
     font-size: 1.2rem;
+    margin-left: 30px;
 }
 
 .franchise-privacy textarea{
@@ -42,6 +44,7 @@
     padding: 20px
 }
 .franchise-privacy p{
+   
     display:block;
    
 }
@@ -49,7 +52,7 @@
         main
 ========================= */
 .franchise-main{
-    
+  
     padding: 50px;
     width: 85%;
 }
@@ -61,10 +64,10 @@
         footer
 ========================= */
 .franchise-footer{
-    border: 5px solid red;
+    
     background-color: #ffffff;
     width:100%;
-    height: 300px;
+    height: 150px;
 }
 .franchise-footer-container{
     background-color: #f6f6f6;
@@ -83,7 +86,17 @@
 @media(max-width:768px ){
   
 }
+
+@media(min-width:1220px ){
+   
+    .franchise-bg{
+      width: 1500px;
+       
+    }
+   
+}
 @media(max-width:1220px ){
+   
     .franchise-privacy{
         display: block;
     }
