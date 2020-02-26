@@ -60,8 +60,8 @@ class Login extends Component {
   render() {
     const { error } = this.state;
     return (
-      <div className="container">
-        <div className="login">
+      <div className="login_container">
+        <div className="login" >
           <img src="http://subway.co.kr/images/franchise/img_barnd_comp01.jpg" alt=""/>
           <h3>LOGIN</h3>
           <form>
