@@ -1,0 +1,15 @@
+.message-form{
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding: 20;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10;
+}
+.message-row{
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding: 20;
+}

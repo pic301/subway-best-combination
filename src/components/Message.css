@@ -1,0 +1,15 @@
+.message-container{
+    position: relative;
+    padding: 20px 60px 10px 20px;
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.6);
+    background-color: white;
+    text-align: left;
+    line-height: 1.1;
+    background-color: #ffc20e;
+}
+.message-writer {  
+    font-weight: 600;
+   margin-right: 10px;
+   color: #029132;
+}

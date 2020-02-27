@@ -42,7 +42,7 @@ class App extends Component {
       if (user) {
         this.setState({
           authenticated: true,
-          currentUser: user,
+          user: user,
           loading: false
         });
         localStorage.setItem("user", user.uid);
@@ -51,7 +51,7 @@ class App extends Component {
       } else {
         this.setState({
           authenticated: false,
-          currentUser: null,
+          user: null,
           loading: false
         });
         localStorage.removeItem("user");
@@ -111,7 +111,7 @@ class App extends Component {
               <PrivateRoute
                 exact
                 path={"/board"}
-                component={Board}
+                component={() => <Board user={this.state.user}/>}
                 authenticated={authenticated}
               ></PrivateRoute>
                  <PrivateRoute
