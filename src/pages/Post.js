@@ -15,8 +15,7 @@ handlerImageAsUrl=( fireBaseUrl ) => {
 }
 
   onChange = (e) =>{
-    console.log(e.target.name)
-    console.log(e.target.value)
+   
     this.setState({
       [e.target.name] : e.target.value
     })
@@ -28,7 +27,7 @@ handlerImageAsUrl=( fireBaseUrl ) => {
         this.props.history.push('/combination')
         return alert("조합을 만들어주세요")
       }
-    console.log(combination)
+
     db.collection('board').add({
       title: this.state.title,
       desc: this.state.desc,
@@ -36,7 +35,7 @@ handlerImageAsUrl=( fireBaseUrl ) => {
       url:this.state.imageAsUrl,
       createdAt: new Date()
     }).then(function() {
-      console.log("Document successfully written!");
+     
   })
   .catch(function(error) {
       console.error("Error writing document: ", error);
@@ -50,7 +49,7 @@ handlerImageAsUrl=( fireBaseUrl ) => {
     })
   }
   render() {
-    console.log(this.state.imageAsUrl)
+   
     return (
       <div className="post">
         <div className="post-wrapper">

@@ -62,9 +62,6 @@ const Board = ({user}) => {
     _get();
   }, []);
 
-  console.log(cards);
-  console.log(cards.cards);
-  console.log(cards["cards"]);
   
 
   return (

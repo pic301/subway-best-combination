@@ -34,13 +34,13 @@ const GridImages = props => {
       .listAll()
       .then(function(res) {
         res.items.forEach(itemRef => {
-          console.log(itemRef.toString());
+         
 
           displayImage(itemRef);
         });
       })
       .catch(error => {
-        console.log(error);
+     
       });
     const displayImage = images => {
       images
@@ -55,7 +55,7 @@ const GridImages = props => {
   useEffect(() => {
     _get();
   }, []);
-  console.log(urls.urls);
+
 
 
 
@@ -72,7 +72,7 @@ const GridImages = props => {
                     }`}
                   >
                   <img key={url.url} src={url.url} alt="" />
-                   <div style={{textAlign:"center"}}>{props.sliderTitle[i]}</div>
+                   <div style={{textAlign:"center",color:"#999999"}}>{props.sliderTitle[i]}</div>
                 </Link>
             </Grid>
           )

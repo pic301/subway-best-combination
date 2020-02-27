@@ -1,7 +1,4 @@
+a {color: #fff; text-decoration: none; outline: none}
 
-a, a:hover, a:visited {
-  text-decoration-skip-ink: auto;
-  text-decoration: none ;
- 
-}
+a:hover, a:active {text-decoration: none; color:#fff; }
 

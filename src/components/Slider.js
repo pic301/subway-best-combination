@@ -38,7 +38,7 @@ class Slider extends Component {
         sandwichImagesIndex: newIndex
       });
     }
-    console.log(this.state.sandwichImagesIndex);
+ 
   };
   prevImage = () => {
     const newIndex = this.state.sandwichImagesIndex - 1;
@@ -52,7 +52,6 @@ class Slider extends Component {
       });
     }
 
-    console.log(this.state.sandwichImagesIndex);
   };
 
   render() {
