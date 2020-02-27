@@ -8,16 +8,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import { db } from "../components/firebaseConfig";
 import Box from '@material-ui/core/Box'
 import amber from '@material-ui/core/colors/amber';
-
+import MessageForm from "../components/MessageForm";
+import './border.css'
 
 const useStyles = makeStyles({
   root: {
     minWidth: 275
-  },
-  bullet: {
-    display: "inline-block",
-    margin: "0 2px",
-    transform: "scale(0.8)"
   },
   title: {
     fontSize: 30,
@@ -29,18 +25,20 @@ const useStyles = makeStyles({
 });
 const defaultProps = {
   bgcolor: 'background.paper',
-  m: 1,
-  border: 3,
+  marginTop: 10,
+  marginLeft: 20,
+  marginRight: 25,
+  
   style: { width: '30%', height: '25%' },
 
 };
 
-const Board = () => {
+const Board = ({user}) => {
   const classes = useStyles();
   const [cards, setCards] = useState([]);
   const _get = () => {
     db.collection("board")
-      .orderBy("createdAt")
+      .orderBy("createdAt","desc")
       .get()
       .then(function(querySnapshot) {
         const cards = [];
@@ -70,14 +68,15 @@ const Board = () => {
   
 
   return (
-    <div>
+    <div className="board-container">
+      <div>
       {cards.cards && cards["cards"].map((card,id )=> (
         <Box key={id} display="flex" justifyContent="flex-start">
         <Box borderColor="#2e7d32" {...defaultProps} >
         <Card className={classes.root}>
          <CardContent>
            <Typography className={classes.title}  gutterBottom>
-              No.{id+1} 꿀조합
+              나만의 꿀조합 
            </Typography>
            <Typography variant="h5" component="h2">
               제목:{card.title}
@@ -98,6 +97,8 @@ const Board = () => {
       </Box>
       )
       )}
+      </div>
+      <MessageForm user={user}/>
     </div>
   )
 };

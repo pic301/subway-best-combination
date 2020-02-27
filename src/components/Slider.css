@@ -28,6 +28,8 @@
 }
 
 .slider-desc {
+  position: absolute;
+  left: 80px;
   padding:30px;
   text-align: center;
   font-size: 1.2rem;
@@ -114,4 +116,17 @@
         display: block;
         height: auto;
       }
+  }
+  @media (max-width: 900px) {
+    .slider-desc {
+     display: inline-block;
+     position: static;
+    }
+  }
+  @media (min-width: 1300px) {
+    .slider-desc {
+     display: inline-block;
+     margin-left: 38px;
+
+    }
   }

@@ -52,7 +52,6 @@ import salt from "../images/recipes/salt.jpg";
 import pepper from "../images/recipes/pepper.jpg";
 import ranchDressing from "../images/recipes/ranchDressing.jpg";
 import sweetOnion from "../images/recipes/sweetOnion.jpg";
-import JustBaked  from '../images/common/JustBaked.png'
 
 class Combination extends Component {
   state = {

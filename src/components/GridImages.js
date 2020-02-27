@@ -63,7 +63,7 @@ const GridImages = props => {
     <div className={classes.root} >
       <Grid container spacing={1} className={classes.container}>
           {urls.urls && urls.urls.map((url,i) => 
-            <Grid item lg={4} md={6} sm={6} className={classes.image}>
+            <Grid key={i}item lg={4} md={6} sm={6} className={classes.image}>
                 <Link
                     to={`/detail/${i}/${
                       props.sliderTitle[i]
