@@ -30,7 +30,7 @@ const DaumPostcode =(props) => {
         useSuggest,
         width,
       });
-      console.log(Postcode)
+      
       Postcode.embed(refEl, { q: defaultQuery,autoClose: false 
        
     });
@@ -46,7 +46,7 @@ const DaumPostcode =(props) => {
     
   );
   const handleData = data => {
-    console.log(data);
+
   };
 
   useEffect(() => {

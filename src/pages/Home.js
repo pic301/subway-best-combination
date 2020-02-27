@@ -70,12 +70,12 @@ class Home extends Component {
   handleClick = e => {
     this.setState({ anchorEl: e.currentTarget });
 
-    console.log(this.state.anchorEl);
+   
   };
 
   handleClose = e => {
     this.setState({ anchorEl: null });
-    console.log(e.target);
+    
   };
   componentDidMount() {
     this.interval = setInterval(
@@ -99,7 +99,7 @@ class Home extends Component {
     this.setState({ open: !this.state.open });
   };
   render() {
-    console.log(this.state.open);
+   
     return (
       <>
         <div className="header">

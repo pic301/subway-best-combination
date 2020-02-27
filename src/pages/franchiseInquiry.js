@@ -1,12 +1,17 @@
-import Button from '@material-ui/core/Button';
-import Checkbox from "@material-ui/core/Checkbox";
-import FormControl from "@material-ui/core/FormControl";
-import TextField from "@material-ui/core/TextField";
-import PriorityHighIcon from "@material-ui/icons/PriorityHigh";
 // =============================
 //      material-ui
 // =============================
+import Button from '@material-ui/core/Button';
+import Checkbox from "@material-ui/core/Checkbox";
+import TextField from "@material-ui/core/TextField";
+import FormControl from '@material-ui/core/FormControl';
+import PriorityHighIcon from "@material-ui/icons/PriorityHigh";
+import Alert from '@material-ui/lab/Alert';
 import { makeStyles } from "@material-ui/styles";
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
+import Collapse from '@material-ui/core/Collapse';
+
 import React, { useState } from "react";
 import "./franchiseInquiry.css";
 import DaumPostcode from '../components/DaumPost';
@@ -16,13 +21,13 @@ import {withRouter} from 'react-router-dom'
 const useStyles = makeStyles(() => ({
   root: {
     "& span": {
-      margin: 10
+      margin: 5
     }
    
      
   },
   margin:{
-    marginLeft:"10px"
+    marginLeft:"15px"
   },
   content:{
     margin:10,
@@ -38,22 +43,103 @@ const useStyles = makeStyles(() => ({
       padding: 10,
   
     }
-   
   },   
 
 
 }));
 const FranchiseInquiry = () => {
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [title, setTitle] = useState("")
+  const [phone, setPhone] = useState('')
+  const [desc, setDesc] = useState('')
+  const [fileName, setFileName] = useState('')
+
+  const [isNameValid , setIsNameValid] = useState(true)
+  const [isEmailValid, setIsEmailValid] = useState(true)
   const [checked, setChecked] = useState(true);
+  const [regexp, setRegexp] = useState(/^[0-9\b]+$/)
+  const [emailregexp, setEmailregexp] = useState(/^[\w-]+(\.[\w-]+)*@([a-z0-9-]+(\.[a-z0-9-]+)*?\.[a-z]{2,6}|(\d{1,3}\.){3}\d{1,3})(:\d{4})?$/)
+  const [error, setError] = useState(false)
+  const [open, setOpen] = useState(false)
   const classes = useStyles();
+  
+
+
   const handleChange = e => {
-    setChecked(e.target.checked);
+    setChecked(!checked);
+    console.log(checked)
   };
   
+  const onChangeName = ( e ) =>{
+    let name = e.target.value
+    setName(e.target.value)
+    if(name && name.length > 2){
+      setIsNameValid(true)
+    } else{
+      setIsNameValid(false)
+    }
+    console.log(name)
+    console.log(isNameValid)
+    
+  }
+  const onChangePhone = (e) =>{
+    let phone = e.target.value
+    if(phone === "" || regexp.test(phone) ){
+      setPhone(phone)
+      setError(false)
+      setOpen(false)
+    }else{
+      setError(true)
+      setOpen(true)
+    }
+    console.log(phone)
+    console.log(error)
+  }
+  
+  const onChangeEmail = (e) =>{
+    let email = e.target.value
+    if( email === "" || emailregexp.test(email)){
+      setEmail(email)
+      setIsEmailValid(true)
+    }else {
+      setEmail(email)
+      setIsEmailValid(false)
+    }
+  }
+  
+  const onChangeTitle = (e) =>{
+    let title = e.target.value
+    setTitle(title)
+  }
+
+  const onChangeDesc = (e) =>{
+    let desc = e.target.value
+    setDesc(desc)
+  }
+
+  const onChangeFileName = (e ) =>{
+      let reader = new FileReader();
+      reader.readAsText(e.target.files[0],)
+      setFileName( e.target.value)
+      console.log (fileName)
+  }
+  
+
+  const onSubmit = (e) =>{
+    e.preventDefault()
+    console.log({name,phone,email,title,desc,fileName,checked})
+    if(checked === false){
+      alert("필수항목에 동의해주세요")
+    }
+ 
+  }
   return (
     <div className="franchise">
       <div className="franchise-bg">
         <div className="franchise-wrapper">
+    <FormControl>
+      <form  onSubmit={onSubmit} >
           <div className="franchise-header">
             <div className="franchise-title"><span>꿀조합</span>신청ㆍ문의</div>
             <div className="franchise-privacy">
@@ -74,6 +160,7 @@ const FranchiseInquiry = () => {
                 <p>
                   <Checkbox
                     checked={checked}
+                    name="privacy-left"
                     onChange={handleChange}
                     value="primary"
                     color="primary"
@@ -98,7 +185,9 @@ const FranchiseInquiry = () => {
 
                 <p>
                   <Checkbox
-                    defaultChecked
+                    checked={checked}
+                    onChange={handleChange}
+                    name="privacy-right"
                     value="secondary"
                     color="primary"
                     inputProps={{ "aria-label": "secondary checkbox" }}
@@ -109,28 +198,93 @@ const FranchiseInquiry = () => {
             </div>
           </div>
           <div className="franchise-main">
-            <FormControl className={classes.root} noValidate autoComplete="off">
+           
               <div className={classes.content}>
                 <span>이름:</span>
-                <TextField id="text_name" placeholder="이름을 입력해주세요" />
+                <TextField id="text_name" placeholder="이름을 입력해주세요" 
+                onChange={onChangeName} value={name} error={!isNameValid} required />
               </div>
+              <Collapse in={!isNameValid}>
+                 <Alert
+                   severity="warning"
+                   action={
+                     <IconButton
+                       aria-label="close"
+                       color="inherit"
+                       size="small"
+                       onClick={() => {
+                         setIsNameValid(true)
+                       }}
+                     >
+                       <CloseIcon fontSize="inherit" />
+                     </IconButton>
+                   }
+                 >
+                   이름은 2자 이상 이어야 합니다.
+                 </Alert>
+               </Collapse>
+
+
               <div className={classes.content}>
                 <span>연락처:</span>
                 <TextField
                   id="text_phone"
                   placeholder="연락처를 입력해주세요"
+                  onChange={onChangePhone}
+                  value={phone}
+                  error={error}
+                  required
                 />
               </div>
+              <Collapse in={open}>
+                 <Alert
+                   severity="warning"
+                   action={
+                     <IconButton
+                       aria-label="close"
+                       color="inherit"
+                       size="small"
+                       onClick={() => {
+                         setOpen(false);
+                       }}
+                     >
+                       <CloseIcon fontSize="inherit" />
+                     </IconButton>
+                   }
+                 >
+                   연락처는 숫자로 이루어져야 합니다.
+                 </Alert>
+               </Collapse>
+              
               <div className={classes.content}>
                 <span>이메일:</span>
-                <TextField id="text_email" placeholder="이름을 입력해주세요" />
+                <TextField id="text_email" placeholder="이름을 입력해주세요" onChange={onChangeEmail} value={email} error={!isEmailValid}/>
               </div>
+               <Collapse in={!isEmailValid}>
+                 <Alert
+                   severity="warning"
+                   action={
+                     <IconButton
+                       aria-label="close"
+                       color="inherit"
+                       size="small"
+                       onClick={() => {
+                        setIsEmailValid(false);
+                       }}
+                     >
+                       <CloseIcon fontSize="inherit" />
+                     </IconButton>
+                   }
+                 >
+                   잘못된 이메일 형식입니다
+                 </Alert>
+               </Collapse>
 
              <DaumPostcode/>
 
               <div className={classes.content}>
                 <span>제목:</span>
-                <TextField id="text_title" placeholder="제목을 입력해주세요" />
+                <TextField id="text_title" placeholder="제목을 입력해주세요"  onChange={onChangeTitle} value={title}/>
               </div>
               <div className={classes.textContainer}>
                 <span >내용:</span>
@@ -139,6 +293,8 @@ const FranchiseInquiry = () => {
                   aria-label="maximum height"
                   placeholder="내용을 입력해주세요"
                   style={{width:"500px"}}
+                  onChange={onChangeDesc} 
+                  value={desc}
                 />
               </div>
               <div className={classes.content}>
@@ -151,8 +307,11 @@ const FranchiseInquiry = () => {
               <input
                 type="file"
                 style={{ display: "none" }}
+                value={fileName}
+                onChange={onChangeFileName}
               />
             </Button>
+            {fileName}
               </div>
               <div className={classes.content}>
                   신청·문의사항에 대한 답변은 메일로 발송됩니다.
@@ -164,7 +323,7 @@ const FranchiseInquiry = () => {
                   inputProps={{ "aria-label": "primary checkbox" }}
                 />
               </div>
-            </FormControl>
+        
           </div>
           <div className="franchise-footer" >
             <div className="franchise-footer-container" >
@@ -177,14 +336,16 @@ const FranchiseInquiry = () => {
                 </div>
             </div>
             <div className="franchise-button-container" >
-            <Button variant="contained"  className={classes.margin}>
+            <Button variant="contained"  size="small" className={classes.margin}>
               취소
             </Button>
-            <Button variant="contained"   color="primary" className={classes.margin}>
+            <Button variant="contained" type="submit" size="small"  color="primary" className={classes.margin}>
               등록
             </Button>
             </div>
           </div>
+        </form >
+        </FormControl>
         </div>
       </div>
     </div>

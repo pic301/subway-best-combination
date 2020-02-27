@@ -4,7 +4,7 @@
  
  const Picture = ({imageAsUrl,handlerImageAsUrl}) => {
     const[imageAsFile, setImageAsFile] = useState('')
-    console.log(imageAsFile)
+
 
  const handleImageAsFile = (e) => {
       const image = e.target.files[0]
@@ -12,7 +12,7 @@
   }
   const handleFireBaseUpload = e => {
     e.preventDefault()
-  console.log('start of upload')
+
  
   if(imageAsFile === '') {
     console.error(`not an image, the image file is a ${typeof(imageAsFile)}`)
@@ -21,17 +21,17 @@
   //firebase upload 시작
   uploadTask.on('state_changed', 
   (snapShot) => {
-    console.log(snapShot)
+    
   }, (err) => {
     //catches the errors
-    console.log(err)
+ 
   }, () => {
     // 다운로드한 url을 state imaUrl의 값으로 변경
     storage.ref('images').child(imageAsFile.name).getDownloadURL()
      .then(fireBaseUrl => {
-       console.log(fireBaseUrl)
+    
        handlerImageAsUrl(fireBaseUrl)
-       console.log(imageAsUrl)
+     
      })
   })
   }

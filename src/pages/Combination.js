@@ -172,7 +172,7 @@ class Combination extends Component {
         this.setState({ breadSelectError: false });
       }
     }
-    console.log(this.state.step);
+  
   };
   prevStep = () => {
     if (this.state.combination.length !== 0) {
@@ -212,8 +212,7 @@ class Combination extends Component {
           this.state.recipeImages[e.target.name]
         )
       });
-      console.log(this.state.combinationImages);
-      console.log(this.state.combination);
+
     }
   };
   onRemove = index => {
@@ -237,7 +236,7 @@ class Combination extends Component {
       });
     }
 
-    console.log(this.state.combination);
+    
   };
 
   render() {
@@ -292,7 +291,7 @@ class Combination extends Component {
                 </li>
               )}
             </ul>
-            <div className="step-content" style={{border:"3px solid blue"}}>
+            <div className="step-content" >
               <img src={this.state.images[this.state.step]} alt="" />
 
               {/* 빵 두개이상 선택시 error */}
@@ -316,7 +315,7 @@ class Combination extends Component {
                   {item}
                 </button>
               ))}
-              <div className="step-card-left" style={{border:"3px solid red"}}>
+              <div className="step-card-left" >
                 <div className="card-recipe">
                   {this.state.combination.map((item, index) => (
                     <div className="card-recipe-item">

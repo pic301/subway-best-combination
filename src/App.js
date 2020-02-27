@@ -38,7 +38,7 @@ class App extends Component {
   }
   authListener = () => {
     fire.auth().onAuthStateChanged(user => {
-      console.log(user);
+   
       if (user) {
         this.setState({
           authenticated: true,
@@ -47,7 +47,7 @@ class App extends Component {
         });
         localStorage.setItem("user", user.uid);
         localStorage.setItem("name", user.displayName);
-        console.log(this.state.authenticated);
+       
       } else {
         this.setState({
           authenticated: false,
@@ -59,13 +59,13 @@ class App extends Component {
     });
   };
   render() {
-    console.log (localStorage["user"])
+   
     const { authenticated, loading } = this.state;
 
     if (loading) {
       return <p>Loading..</p>;
     }
-    console.log(this.state.user)
+   
     return (
       <div>
         <Router>

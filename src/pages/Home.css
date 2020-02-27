@@ -381,7 +381,6 @@ input,button,submit { border:none; }
 }
 .section-wrapper-left{
   display: flex;
-  border:3px solid green;
 }
 
 /* mediaquery */
@@ -428,7 +427,7 @@ input,button,submit { border:none; }
 }
 @media( max-width: 480px ){
   .header-link{
-    position: static;
+    margin-left: 100px;
     
   }
 }

@@ -18,7 +18,7 @@ _change = (starSelected) => {
 
     render() {
         const { starSelected } = this.state
-        console.log(starSelected)
+       
         return (
             <div className="star-container">
             {this.state.stars.map((star,i) =>
