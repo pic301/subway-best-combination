@@ -9,6 +9,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.2.1",
+    "firebase-tools": "^7.14.0",
     "material-ui": "^1.0.0-beta.47",
     "material-ui-image": "^3.2.2",
     "react": "^16.12.0",
