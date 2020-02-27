@@ -51,7 +51,7 @@ class store extends Component {
 
         let map = new kakao.maps.Map(el, {
           center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-          level: 5 // 지도의 확대 레벨
+          level: 3 // 지도의 확대 레벨
         });
         // 장소 검색 객체를 생성합니다
         let ps = new kakao.maps.services.Places();
