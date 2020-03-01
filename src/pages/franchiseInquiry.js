@@ -12,7 +12,7 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Collapse from '@material-ui/core/Collapse';
 
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import "./franchiseInquiry.css";
 import DaumPostcode from '../components/DaumPost';
 import {withRouter} from 'react-router-dom'
@@ -66,24 +66,23 @@ const FranchiseInquiry = () => {
   
 
 
-  const handleChange = e => {
+  const handleChange = useCallback( e => {
     setChecked(!checked);
-    console.log(checked)
-  };
-  
-  const onChangeName = ( e ) =>{
-    let name = e.target.value
-    setName(e.target.value)
-    if(name && name.length > 2){
-      setIsNameValid(true)
-    } else{
-      setIsNameValid(false)
+  },[checked]
+  )
+  const onChangeName = useCallback(
+    ( e ) => {
+      let name = e.target.value
+      setName(e.target.value)
+      if(name && name.length > 2){
+        setIsNameValid(true)
+      } else{
+        setIsNameValid(false)
+      }
+     
     }
-    console.log(name)
-    console.log(isNameValid)
-    
-  }
-  const onChangePhone = (e) =>{
+  ,[])
+  const onChangePhone = useCallback((e) =>{
     let phone = e.target.value
     if(phone === "" || regexp.test(phone) ){
       setPhone(phone)
@@ -93,11 +92,10 @@ const FranchiseInquiry = () => {
       setError(true)
       setOpen(true)
     }
-    console.log(phone)
-    console.log(error)
-  }
+
+  },[regexp])
   
-  const onChangeEmail = (e) =>{
+  const onChangeEmail = useCallback((e) =>{
     let email = e.target.value
     if( email === "" || emailregexp.test(email)){
       setEmail(email)
@@ -106,34 +104,33 @@ const FranchiseInquiry = () => {
       setEmail(email)
       setIsEmailValid(false)
     }
-  }
+  },[emailregexp])
   
-  const onChangeTitle = (e) =>{
+  const onChangeTitle = useCallback((e) =>{
     let title = e.target.value
     setTitle(title)
-  }
+  },[])
 
-  const onChangeDesc = (e) =>{
+  const onChangeDesc = useCallback((e) =>{
     let desc = e.target.value
     setDesc(desc)
-  }
+  },[])
 
-  const onChangeFileName = (e ) =>{
-      let reader = new FileReader();
-      reader.readAsText(e.target.files[0],)
-      setFileName( e.target.value)
-      console.log (fileName)
-  }
+  const onChangeFileName = useCallback( (e ) =>{
+    let reader = new FileReader();
+    reader.readAsText(e.target.files[0],)
+    setFileName( e.target.value)
+},[])
   
 
-  const onSubmit = (e) =>{
+  const onSubmit = useCallback((e) =>{
     e.preventDefault()
-    console.log({name,phone,email,title,desc,fileName,checked})
     if(checked === false){
       alert("필수항목에 동의해주세요")
     }
  
-  }
+  },[checked])
+
   return (
     <div className="franchise">
       <div className="franchise-bg">
