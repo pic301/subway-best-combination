@@ -1,4 +1,10 @@
 import React, { useEffect, useState } from "react";
+import MessageForm from "../components/MessageForm";
+import './border.css'
+
+// =========================
+//     MaterialUI
+// =========================
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -8,8 +14,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import { db } from "../components/firebaseConfig";
 import Box from '@material-ui/core/Box'
 import amber from '@material-ui/core/colors/amber';
-import MessageForm from "../components/MessageForm";
-import './border.css'
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import ShareIcon from '@material-ui/icons/Share';
+import IconButton from '@material-ui/core/IconButton';
 
 const useStyles = makeStyles({
   root: {
@@ -21,7 +28,8 @@ const useStyles = makeStyles({
   },
   pos: {
     marginBottom: 12
-  }
+  },
+  favorite:{}
 });
 const defaultProps = {
   bgcolor: 'background.paper',
@@ -36,6 +44,7 @@ const defaultProps = {
 const Board = ({user}) => {
   const classes = useStyles();
   const [cards, setCards] = useState([]);
+  const [heart, setHeart] = useState([]);
   const _get = () => {
     db.collection("board")
       .orderBy("createdAt","desc")
@@ -50,24 +59,29 @@ const Board = ({user}) => {
               title:doc.data().title,
               desc:doc.data().desc,
               combination:doc.data().combination,
-              url:doc.data().url
+              url:doc.data().url,
+              liked:doc.data().liked
             }
           )
           
         });
-        setCards({cards:cards})
+        setCards([...cards])
       });
   };
-  useEffect(() => {
-    _get();
-  }, []);
+    useEffect(() => {
+      _get();
+    }, []);
 
-  
+const handle = (id) =>{
+  setCards(cards.map((card,i) => i === id ? {...card, liked:!card.liked} : card))
+}
+
+
 
   return (
     <div className="board-container">
       <div>
-      {cards.cards && cards["cards"].map((card,id )=> (
+      {cards && cards.map((card,id )=> (
         <Box key={id} display="flex" justifyContent="flex-start">
         <Box borderColor="#2e7d32" {...defaultProps} >
         <Card className={classes.root}>
@@ -89,14 +103,21 @@ const Board = ({user}) => {
          <CardActions>
            <Button size="small">Learn More</Button>
          </CardActions>
+         <IconButton>
+          { card.liked ===true ?<FavoriteIcon style={{color:"red"}}  className={classes.favorite} onClick={() => handle(id)} /> 
+            :<FavoriteIcon  className={classes.favorite} onClick={() => handle(id)} /> }
+          </IconButton>
+          <IconButton>
+            <ShareIcon />
+          </IconButton>
        </Card>
         </Box>
       </Box>
       )
       )}
       </div>
-      <MessageForm user={user}/>
-    </div>
+        <MessageForm user={user}/>
+      </div>
   )
 };
 export default Board;

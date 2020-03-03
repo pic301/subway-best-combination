@@ -33,7 +33,8 @@ handlerImageAsUrl=( fireBaseUrl ) => {
       desc: this.state.desc,
       combination: [...combination],
       url:this.state.imageAsUrl,
-      createdAt: new Date()
+      createdAt: new Date(),
+      liked:false
     }).then(function() {
      
   })
